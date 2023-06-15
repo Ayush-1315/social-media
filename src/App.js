@@ -8,6 +8,7 @@ import { Home } from "./frontend/pages/home/home";
 import { LoginPage } from "./frontend/pages/login/login";
 import { PrivateRoute } from "./frontend/components/PrivateRoute/privateRoute";
 import { SignupPage } from "./frontend/pages/signup/signup";
+import {LandingPage} from "./frontend/pages/Landing Page/landingPage"
 
 export const notifyToast=(message)=>{
   toast.success(message, {
@@ -36,11 +37,12 @@ export const errorToast=(message)=>{
 function App() {
   return <div className="App">
     <Routes>
-      <Route path="/" element={
+      <Route path="/home" element={
  <PrivateRoute>
   <Home/>
  </PrivateRoute>
       }/>
+      <Route path="/" element={<LandingPage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/mockman" element={<Mockman/>}/>

@@ -1,3 +1,8 @@
+import { Navbar } from "../../components/navbar/navbar"
+
 export const Home=()=>{
-    return <>This is Home!</>
+    return <>
+    <Navbar/>
+    This is Home!
+    </>
 }
