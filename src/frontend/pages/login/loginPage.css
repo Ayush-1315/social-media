@@ -1,0 +1,35 @@
+.loginContainer{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 55.8vw 44vw;
+    /* place-content: center; */
+    overflow: hidden;
+
+}
+.loginRight{
+    height: 100vh;
+    width: 44vw;
+    display: grid;
+    grid-template-columns: repeat(1,30vw);
+    border-left:0.3rem solid black ;
+    background-color:#fff;
+}
+.loginLeft{
+    height: 100vh;
+    width: 55.8vw;
+    display: grid;
+    grid-template-columns: repeat(1,30vw);
+    
+    background-color: #c4baf6;
+}
+input{
+    width: 80%;
+    height: 10vh;
+}
+.logForm{
+    height:80vh;
+    width: 30vw;
+    background-color: red;
+
+}

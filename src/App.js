@@ -1,53 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-import {useEffect }from "react";
-import axios from "axios";
+import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Mockman from "mockman-js";
+import { ToastContainer, toast } from 'react-toastify';
+import { Routes,Route } from "react-router";
+
+import { Home } from "./frontend/pages/home/home";
+import { LoginPage } from "./frontend/pages/login/login";
+import { PrivateRoute } from "./frontend/components/PrivateRoute/privateRoute";
+import { SignupPage } from "./frontend/pages/signup/signup";
+
+export const notifyToast=(message)=>{
+  toast.success(message, {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      });
+};
+export const errorToast=(message)=>{
+  toast.error(message, {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "light",
+    });
+}
 function App() {
-  const getUser=async (user,pass)=>
-  {
-    try{
-      const response=await axios.post("/api/auth/login",{username:user,password:pass})
-      console.log(response)
-    }
-    catch (e){
-      console.log(e);
-    }
-  }
-//   useEffect(()=>{
-//     (async()=>{
-//     try {const response=await axios.post("/api/auth/login",{
-//       username: "adarshbalika",
-//     password: "adarshBalika123"
-//   })
-//     console.log(response)
-// }
-//     catch (e)
-//     {
-//       console.log(e)
-//     }
-// })()
-//   },[])
-getUser("adarshbalika","adarshBalika123")
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <Mockman/> */}
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div className="App">
+    <Routes>
+      <Route path="/" element={
+ <PrivateRoute>
+  <Home/>
+ </PrivateRoute>
+      }/>
+      <Route path="/login" element={<LoginPage/>}/>
+      <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/mockman" element={<Mockman/>}/>
+    </Routes>
+    <ToastContainer/>
+  </div>;
 }
 
 export default App;
