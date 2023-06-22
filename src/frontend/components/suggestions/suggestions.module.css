@@ -1,0 +1,12 @@
+.suggestionBox{
+    background-color: yellow;
+    position: relative;
+    /* left: 50%; */
+    /* right: 50%; */
+    height: fit-content;
+    width: fit-content;
+    padding:1rem;
+    width: 80%;
+    border-radius: 10px;
+    /* transform: translate(50%, 50%);*/
+}

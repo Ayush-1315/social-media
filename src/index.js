@@ -7,13 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 
 import { AuthProvider } from "./frontend/context/authContext";
+import { UserProvider } from "./frontend/context/userContext";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
+        <UserProvider>
         <App />
+        </UserProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

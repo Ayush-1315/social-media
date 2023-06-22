@@ -207,19 +207,6 @@ export const followUserHandler = function (schema, request) {
         }
       );
     }
-
-    if (user._id === followUser._id) {
-      return new Response(
-        404,
-        {},
-        {
-          errors: [
-            "You cannot follow yourself"
-          ],
-        }
-      );
-    }
-
     const isFollowing = user.following.some(
       (currUser) => currUser._id === followUser._id
     );
@@ -250,6 +237,7 @@ export const followUserHandler = function (schema, request) {
       { user: updatedUser, followUser: updatedFollowUser }
     );
   } catch (error) {
+    console.log('here');
     return new Response(
       500,
       {},

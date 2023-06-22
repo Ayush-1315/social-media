@@ -7,7 +7,7 @@ export const LoginPage = () => {
   const { logUser,isLogin } = useAuth();
   const navigate=useNavigate();
   useEffect(()=>{
-    isLogin && navigate('/');
+    isLogin && navigate('/home');
   },[isLogin,navigate])
   const getData=(values)=>{
     logUser({...values})

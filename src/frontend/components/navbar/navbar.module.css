@@ -1,0 +1,43 @@
+.navIcons,.profileIcon{
+    font-size: 1.5rem;
+    margin:0.3rem;
+    cursor: pointer;
+}
+.profileIcon{
+    border-radius: 50%;
+    background-color: grey;
+    border-radius: 50%;
+    background-color: grey;
+    display: inline-block;
+    font-weight: bolder;
+}
+.navbar a{
+    text-decoration: none;
+}
+.profileImage{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: grey;
+    display: inline-block;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+.profileImage:hover{
+    outline: 5px solid grey;
+}
+.navbarImage{
+    width:100%;
+    border-radius: 50%;
+}
+.navbar{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    position: sticky;
+    top:0;
+    left:0;
+    height: 3rem;
+    z-index: 1;
+}

@@ -1,24 +1,24 @@
 import { createContext, useContext, useEffect,useState} from "react";
-import { useNavigate } from "react-router";
+import { useNavigate} from "react-router";
 
 import { loginAuth, signupAuth } from "../services/authService";
 import { errorToast, notifyToast } from "../../App";
+import {updateUserService } from "../services/userService";
 const AuthContext =createContext();
 export const AuthProvider = ({ children }) => {
   const navigate=useNavigate()
   const [isLogin,setIsLogin]=useState(false)
     useEffect(() => {
       const userData=JSON.parse(localStorage?.getItem("user"))??false
-      setIsLogin(userData);
-      userData&& navigate("/home");
-    },[navigate]);
+      setIsLogin(userData?.foundUser);
+    },[]);
 
     
     const logUser=async({username,password})=>{
       try{
         const response=await loginAuth({username,password});
         if(response?.status===200){
-          setIsLogin(true);
+          setIsLogin(response?.data?.foundUser);
           notifyToast("Logged In")
           localStorage.setItem("user",JSON.stringify(response?.data))
           navigate("/home");
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
         const response=await signupAuth(userCred);
         console.log(response)
         if(response?.status===201){
-          setIsLogin(true);
+          setIsLogin(response?.data?.createdUser);
           notifyToast("Logged In")
           localStorage.setItem("user",JSON.stringify(response?.data))
           navigate("/home");
@@ -53,9 +53,20 @@ export const AuthProvider = ({ children }) => {
       localStorage.clear();
       navigate('/');
       notifyToast('Logged off');
+      setIsLogin(false);
     }
+  const updateUser=async(userCred)=>{
+    try{
+      const response=await updateUserService(userCred,JSON.parse(localStorage?.getItem("user"))?.encodedToken);
+      console.log(response);
+    }
+    catch (e){
+      console.log(e)
+    }
+  }
+ 
   return (
-    <AuthContext.Provider value={{ isLogin,logUser,createUser,logoffUser }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isLogin,logUser,createUser,logoffUser,updateUser,setIsLogin}}>{children}</AuthContext.Provider>
   );
 };
 export const useAuth = () => useContext(AuthContext);

@@ -7,7 +7,7 @@ export const SignupPage=()=>{
          createUser({
                 email:'ayushraj1315',
                 password:'1234',
-                username:'Ayush1315'
+                username:'ayush1315'
             });
       
     }

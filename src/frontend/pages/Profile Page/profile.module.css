@@ -1,0 +1,21 @@
+.profileCard{
+
+}
+.postContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+.profileImg{
+    height: 9rem;
+    border-radius: 50%;
+    border: 5px solid;
+    width: 9rem;
+}
+.profileSociety{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+}

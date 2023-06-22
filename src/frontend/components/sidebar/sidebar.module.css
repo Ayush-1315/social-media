@@ -1,0 +1,16 @@
+.sidebar{
+    width: 15vw;
+    background: red;
+    min-height: 100vw;
+    border: 2px solid;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+}
+.optionContainer{
+    list-style: none;
+    text-align: left;
+}
+.options>a{
+text-decoration: none;
+}

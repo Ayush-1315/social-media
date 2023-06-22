@@ -1,0 +1,25 @@
+.card{
+width: 45vw;
+border: 2px solid;
+margin: 0.5rem;
+padding: 0.5rem;
+border-radius: 10px;
+}
+.cardHead{
+    display: flex;
+    justify-content: space-between;
+}
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imageContainer{
+    max-width: 40vw;
+}
+.imageContainer>img{
+    width: 100%;
+}
+.cardFoot{
+  
+}
