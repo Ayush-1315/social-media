@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [isLogin,setIsLogin]=useState(false)
     useEffect(() => {
       const userData=JSON.parse(localStorage?.getItem("user"))??false
-      setIsLogin(userData?.foundUser);
+      setIsLogin(userData?.userData);
     },[]);
 
     
@@ -20,7 +20,10 @@ export const AuthProvider = ({ children }) => {
         if(response?.status===200){
           setIsLogin(response?.data?.foundUser);
           notifyToast("Logged In")
-          localStorage.setItem("user",JSON.stringify(response?.data))
+          localStorage.setItem("user",JSON.stringify({
+            userData:response?.data?.foundUser,
+            encodedToken:response?.data?.encodedToken
+          }))
           navigate("/home");
         }
         else throw response;
@@ -38,7 +41,10 @@ export const AuthProvider = ({ children }) => {
         if(response?.status===201){
           setIsLogin(response?.data?.createdUser);
           notifyToast("Logged In")
-          localStorage.setItem("user",JSON.stringify(response?.data));
+          localStorage.setItem("user",JSON.stringify({
+            userData:response?.data?.createdUser,
+            encodedToken:response?.data?.encodedToken
+          }));
           console.log(response?.data)
           navigate("/home");
         }

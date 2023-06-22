@@ -9,7 +9,6 @@ export const UserProvider=({children})=>{
     const [allUsers,setAllUsers]=useState([]);
     const [posts, setPosts] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
-    // const followingUsers=isLogin?.following?.map(({username})=>username);
     const [followingUsers,setFollowingUsers]=useState([]);
     const notFollowingUsers=allUsers.filter(({username})=>!followingUsers?.includes(username))
     useEffect(()=>{
@@ -56,7 +55,7 @@ export const UserProvider=({children})=>{
           localStorage.removeItem("user");
           localStorage.setItem("user",JSON.stringify({
             encodedToken,
-            foundUser:response?.data?.user
+            userData:response?.data?.user
           }))
           setFollowingUsers([...isLogin?.following?.map(({username})=>username),response?.data?.followUser?.username])
         }

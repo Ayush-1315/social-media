@@ -2,7 +2,6 @@ import suggestionCSS from "./suggestions.module.css";
 import {useUser} from "../../context/userContext";
 export const Suggestions=()=>{
     const {notFollowingUsers,followUser}=useUser();
-    console.log(notFollowingUsers);
     return <div className={suggestionCSS.suggestionBox}>
         <p>Suggestions for you</p>
         <ul>
