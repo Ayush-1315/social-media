@@ -38,7 +38,8 @@ export const AuthProvider = ({ children }) => {
         if(response?.status===201){
           setIsLogin(response?.data?.createdUser);
           notifyToast("Logged In")
-          localStorage.setItem("user",JSON.stringify(response?.data))
+          localStorage.setItem("user",JSON.stringify(response?.data));
+          console.log(response?.data)
           navigate("/home");
         }
         else throw response;

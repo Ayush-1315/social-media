@@ -9,15 +9,17 @@ export const UserProvider=({children})=>{
     const [allUsers,setAllUsers]=useState([]);
     const [posts, setPosts] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
-    const followingUsers=isLogin?.following?.map(({username})=>username);
+    // const followingUsers=isLogin?.following?.map(({username})=>username);
+    const [followingUsers,setFollowingUsers]=useState([]);
+    const notFollowingUsers=allUsers.filter(({username})=>!followingUsers?.includes(username))
     useEffect(()=>{
         (async()=>{
             try{
                 const response=await getAllUsers();
                 if(response?.status===200){
                   const users=response?.data?.users.filter(({username})=>username!==isLogin?.username);
-                  setAllUsers(users.filter(({username})=>!followingUsers.includes(username)));
-                 
+                  setAllUsers(users);
+                  setFollowingUsers(isLogin?.following?.map(({username})=>username))
                 }
             }
             catch(e){
@@ -44,7 +46,7 @@ export const UserProvider=({children})=>{
               console.error(e);
             }
           })();
-    },[isLogin,followingUsers]);
+    },[isLogin]);
     const followUser=async(followId)=>{
       try{
         const encodedToken=JSON.parse(localStorage?.getItem("user"))?.encodedToken
@@ -56,14 +58,14 @@ export const UserProvider=({children})=>{
             encodedToken,
             foundUser:response?.data?.user
           }))
+          setFollowingUsers([...isLogin?.following?.map(({username})=>username),response?.data?.followUser?.username])
         }
       }
       catch(e){
         console.error(e)
       }
     }
-
-    return <UserContext.Provider value={{allUsers,posts,allPosts,followUser}}>
+    return <UserContext.Provider value={{allUsers,posts,allPosts,followUser,followingUsers,notFollowingUsers}}>
         {children}
     </UserContext.Provider>
 }
