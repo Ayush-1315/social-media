@@ -6,9 +6,10 @@ return <div className={postCardCSS.card}>
         <p>{username}</p>
     </div>
     <div className={postCardCSS.cardBody}>
-        <p>{content?.title}</p>
+        <p>{content?.message}</p>
         <div className={postCardCSS.imageContainer}>
-        {content?.postImg && <img src={content?.postImg} alt={_id} />}
+            
+        {content?.media?.type==="image" && <img src={content?.media?.url} alt={_id} />}
         </div>
     </div>
     <div className={postCardCSS.cardFoot}>

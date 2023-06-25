@@ -5,17 +5,23 @@ import { useAuth } from "../../context/authContext";
 import profilePage from "./profile.module.css";
 import { PostCard } from "../../components/postCard/postCard";
 import { useUser } from "../../context/userContext";
+import { useState } from "react";
+
 export const Profile = () => {
   const navigate = useNavigate();
   const { logoffUser, isLogin, updateUser } = useAuth();
-  const {posts}=useUser()
-
+  const {posts,getPostByUser}=useUser()
+  const [userPosts,setUserPosts]=useState([]);
   useEffect(() => {
     if (isLogin) {
       navigate("/profile");
       document.title = `${isLogin?.username} | Profile`;
+      (async()=>{
+        const response=await getPostByUser(isLogin.username);
+        setUserPosts(response);
+      })()
     }
-  }, [isLogin, navigate]);
+  }, [isLogin]);
   return (
     <>
       <div className={profilePage.page}>
@@ -57,7 +63,7 @@ export const Profile = () => {
           <button onClick={() => logoffUser()}>Log Out</button>
           <div className={profilePage.postContainer}>
             <h2>Your Posts</h2>
-            {posts.map((post, index) => (
+            {userPosts.map((post, index) => (
               <PostCard post={post} key={index} />
             ))}
           </div>

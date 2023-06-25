@@ -13,3 +13,7 @@
     position: relative;
     left: 20vw;
 }
+.custom {
+  cursor: pointer;
+  font-size: 2rem;
+}

@@ -56,6 +56,8 @@ export const users = [
     username: "amishabalika",
     password: "amisha24",
     bookmarks: [],
+    bio:"I am an aspiring web developer",
+    profile:"https://t.ly/WHWV",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

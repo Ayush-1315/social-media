@@ -18,3 +18,19 @@ export const getAllPosts=async()=>{
         return e;
     }
 }
+export const createPostService=async(postData,token)=>{
+    try{
+        const response =await axios.post("/api/posts",
+        {postData},
+        {
+            headers:{
+                authorization:token
+            }
+        });
+        return response;
+    }
+    catch(e){
+        console.log(e);
+        return e
+    }
+}
