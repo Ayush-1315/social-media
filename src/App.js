@@ -18,6 +18,7 @@ import { Asidebar } from "./frontend/components/asidebar/asidebar";
 import { Suggestions } from "./frontend/components/suggestions/suggestions";
 import { UserPage } from "./frontend/pages/user Page/userPage";
 import { LikedPostPage } from "./frontend/pages/Liked Posts/likedPosts";
+import { PostPage } from "./frontend/pages/post Page/postPage";
 
 export const notifyToast = (message) => {
   toast.success(message, {
@@ -53,6 +54,7 @@ function App() {
       {showComponents && <Sidebar/>}
      <div className="content">
      <Routes>
+      
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -102,6 +104,14 @@ function App() {
           element={
             <PrivateRoute>
               <UserPage/>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/posts/:pId"
+          element={
+            <PrivateRoute>
+              <PostPage />
             </PrivateRoute>
           }
         />

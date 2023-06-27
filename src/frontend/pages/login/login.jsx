@@ -9,16 +9,16 @@ export const LoginPage = () => {
   useEffect(()=>{
     isLogin && navigate('/home');
   },[isLogin,navigate])
-  const getData=(values)=>{
-    logUser({...values})
-  }
+  // const getData=(values)=>{
+  //   logUser({...values})
+  // }
   return (
     <>
       <div className="loginContainer">
         <div className="loginLeft"></div>
         <div className="loginRight"> 
         Login Here!
-        <LoginForm onFinish={getData} signupRoute="/signup"/>
+        <LoginForm  signupRoute="/signup"/>
         <button onClick={()=>logUser({username:'adarshbalika',password:'adarshBalika123'})}>Test Credentials</button>
         </div>
       </div>

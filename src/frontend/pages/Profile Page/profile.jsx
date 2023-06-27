@@ -6,24 +6,50 @@ import profilePage from "./profile.module.css";
 import { PostCard } from "../../components/postCard/postCard";
 import { useUser } from "../../context/userContext";
 import { useState } from "react";
+import { Modal } from "../../components/Modal/modal";
+import { CreatePost } from "../../components/createPost/createPost";
 
 export const Profile = () => {
   const navigate = useNavigate();
   const { logoffUser, isLogin, updateUser } = useAuth();
-  const {posts,getPostByUser}=useUser()
+  const {getPostByUser,deletedPosts,deletePost,usersFeed}=useUser()
   const [userPosts,setUserPosts]=useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [editPost, setEditPost] = useState(null);
   useEffect(() => {
     if (isLogin) {
-      navigate("/profile");
       document.title = `${isLogin?.username} | Profile`;
       (async()=>{
         const response=await getPostByUser(isLogin.username);
-        setUserPosts(response);
+        setUserPosts(response?.filter(({_id})=>!deletedPosts.includes(_id)));
       })()
     }
-  }, [isLogin]);
+    // eslint-disable-next-line
+  }, [isLogin,navigate,usersFeed]);
+  const onSubmitFun = () => {
+    setShowModal(false);
+  };
+  const onEditPost = () => {
+    setShowModal(false);
+  };
+  const onEditFun = (data) => {
+    setEditPost(data);
+    setShowModal(true);
+  };
+  const onDelete = (postId) => deletePost(postId);
   return (
     <>
+    {showModal && (
+        <Modal>
+          <CreatePost
+            user={isLogin}
+            onSubmit={onSubmitFun}
+            initialData={editPost}
+            onEdit={onEditPost}
+            isEdit="true"
+          />
+        </Modal>
+      )}
       <div className={profilePage.page}>
         <div className={profilePage.content}>
           <div className={profilePage.profileCard}>
@@ -41,7 +67,7 @@ export const Profile = () => {
                 <p>Following</p>
               </div>
               <div className={profilePage.status}>
-                <p>{posts.length}</p>
+                <p>{userPosts.length}</p>
                 <p>Posts</p>
               </div>
               <div className={profilePage.status}>
@@ -64,7 +90,8 @@ export const Profile = () => {
           <div className={profilePage.postContainer}>
             <h2>Your Posts</h2>
             {userPosts.map((post, index) => (
-              <PostCard post={post} key={index} />
+              <PostCard post={post} key={index} onEdit={onEditFun}
+              onDelete={onDelete} />
             ))}
           </div>
         </div>

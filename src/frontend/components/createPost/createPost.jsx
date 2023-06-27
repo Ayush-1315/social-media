@@ -1,95 +1,49 @@
 import { useState } from "react";
-import newPost from "./createPost.module.css";
-export const CreatePost = ({ onSubmit, user }) => {
 
-  const [userPost, setUserPost] = useState({
-    message: "",
-    media: ""
-  });
+import { emojis } from "./createPostEmojis";
+import { usePost } from "../../context/postContext";
+import newPost from "./createPost.module.css";
+
+export const CreatePost = ({ onSubmit, user, initialData={message:"",media:"",_id:""},onEdit,isEdit}) => {
+  const [userPost, setUserPost] = useState({...initialData});
+  const {editPost}=usePost();
   const changeHandler = (type, value) => {
-    type !== "emoji"
+    
+   if(userPost?._id!=="")
+    {
+      type !== "emoji"
+    ? setUserPost({ ...userPost, [type]: value })
+    : setUserPost({ ...userPost,  message:userPost.message + value })
+    
+  }
+
+    else{
+      type !== "emoji"
       ? setUserPost((prev) => ({ ...prev, [type]: value }))
       : setUserPost((prev) => ({ ...prev, message: prev.message + value }));
-  };
-
-  const emojis = [
-    {
-      emoji: "😊",
-      label: "smile"
-    },
-    {
-      emoji: "😍",
-      label: "heart-eyes"
-    },
-    {
-      emoji: "😘",
-      label: "kiss"
-    },
-    {
-      emoji: "👌",
-      label: "ok-hand"
-    },
-    {
-      emoji: "😁",
-      label: "smiling-eyes"
-    },
-    {
-      emoji: "❤️",
-      label: "red-heart"
-    },
-    {
-      emoji: "😂",
-      label: "tears-of-joy"
-    },
-    {
-      emoji: "😎",
-      label: "sunglasses"
-    },
-    {
-      emoji: "😉",
-      label: "winking-face"
-    },
-    {
-      emoji: "✌️",
-      label: "victory-hand"
-    },
-    {
-      emoji: "👍",
-      label: "thumbs-up"
-    },
-    {
-      emoji: "🙂",
-      label: "slightly-smiling-face"
-    },
-    {
-      emoji: "💕",
-      label: "two-hearts"
-    },
-    {
-      emoji: "😑",
-      label: "expressionless-face"
-    },
-    {
-      emoji: "🥰",
-      label: "smiling-face-with-hearts"
-    },
-    {
-      emoji: "🫥",
-      label: "dotted-line-face"
     }
-  ];
+
+   }
   const submitHandler = () => {
-    if (typeof onSubmit === "function") onSubmit({content:userPost});
+    if (initialData?._id!==""){
+      onEdit();
+      editPost(initialData?._id,{message:userPost?.message,media:{...userPost?.media}},JSON.parse(localStorage.getItem("user")).encodedToken)
+    }
+    else if (typeof( onSubmit === "function")){
+      console.log(userPost)
+      onSubmit({ content:{message:userPost?.message,media:{...userPost?.media}} })
+    };
     setUserPost({
       message: "",
-      media: ""
+      media: "",
     });
   };
   const [showEmojiBox, setEmojiBoxs] = useState(false);
   const resetFileInput = () => {
-    setUserPost({ ...userPost, media: "" });
+    setUserPost(prev=>({ ...prev, media: "" }));
     document.getElementById("postImage").value = "";
   };
+
   return (
     <div className={newPost.box}>
       <div className={newPost.header}>
@@ -97,7 +51,11 @@ export const CreatePost = ({ onSubmit, user }) => {
           className={newPost.profilePic}
           style={{ backgroundImage: `url(${user?.profile})` }}
         >
-          {user?.profile===undefined && <span className={newPost.profileText}>{user?.username[0].toUpperCase()}</span>}
+          {user?.profile === undefined && (
+            <span className={newPost.profileText}>
+              {user?.username[0].toUpperCase()}
+            </span>
+          )}
         </div>
         <textarea
           name="postText"
@@ -107,7 +65,7 @@ export const CreatePost = ({ onSubmit, user }) => {
           placeholder="What's on your mind ?"
           className={newPost.textBox}
           onChange={(e) => changeHandler("message", e.target.value)}
-          value={userPost.message}
+          value={userPost?.message}
         ></textarea>
       </div>
       <div className={newPost.footer}>
@@ -128,11 +86,13 @@ export const CreatePost = ({ onSubmit, user }) => {
                   e.target.files[0].type.lastIndexOf("/")
                 ),
                 size: e.target.files[0].size,
-                url: URL.createObjectURL(e.target.files[0])
+                url: URL.createObjectURL(e.target.files[0]),
               };
+              console.log({isEdit})
               changeHandler("media", media);
             }}
           />
+          
           <span
             className="material-symbols-outlined custom"
             onClick={() => setEmojiBoxs(!showEmojiBox)}
@@ -141,8 +101,10 @@ export const CreatePost = ({ onSubmit, user }) => {
           </span>
           {userPost?.media?.name && (
             <div className={newPost.fileChip}>
-              <span>{userPost?.media?.name}</span>
-              <button onClick={resetFileInput}>X</button>
+              <>
+                <span>{userPost?.media?.name}</span>
+                <button onClick={resetFileInput}>X</button>
+              </>{" "}
             </div>
           )}
         </div>
@@ -169,7 +131,7 @@ export const CreatePost = ({ onSubmit, user }) => {
           </div>
         </div>
         <button
-          disabled={userPost.message === "" && userPost.media === ""}
+          disabled={userPost?.message === "" && userPost?.media === ""}
           onClick={() => submitHandler()}
           className={newPost.postBtn}
         >

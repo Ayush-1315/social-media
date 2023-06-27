@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #FEF4C0;
 }
 
 .page{
@@ -16,4 +17,11 @@
 .custom {
   cursor: pointer;
   font-size: 2rem;
+}
+.postMoreOptions{
+  padding: 50% 0;
+  cursor: pointer;
+}
+::-webkit-scrollbar{
+  display: none;
 }

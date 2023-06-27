@@ -7,11 +7,12 @@ export const Navbar=()=>{
     const {isLogin}=useAuth();
     return <nav className={navbar.navbar}>
         <div>
-        <Link to="/home">ChatsterGram</Link></div>
+        <Link to="/home" className={navbar.brand}>ChatsterGram</Link></div>
         <div>
-            <FontAwesomeIcon icon={faCompass} className={navbar.navIcons}/>
-            <FontAwesomeIcon icon={faMagnifyingGlass} className={navbar.navIcons}/>
-            <FontAwesomeIcon icon={faBookmark} className={navbar.navIcons}/>
+        <FontAwesomeIcon icon={faMagnifyingGlass} className={navbar.navIcons}/>
+        </div>
+        <div>
+         
             {/* <Link to="/profile"><span className={navbar.profileIcon}>A</span></Link> */}
             <Link to="/profile">{isLogin?.profile===""?<span className={navbar.profileIcon}>{isLogin?.username?.[0]?.toUpperCase()}</span>:<span className={navbar.profileImage}><img src={isLogin?.profile} alt="profile"className={navbar.navbarImage}/></span>}</Link>
         </div>

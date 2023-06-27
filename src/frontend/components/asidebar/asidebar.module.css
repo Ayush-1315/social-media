@@ -1,5 +1,5 @@
 .asidebar{
-    background-color: green;
+    background-color: #FDF0D6;
     width: 20vw;
     position: fixed;
     right: 0;
@@ -7,4 +7,5 @@
     display: flex;
     padding: 1rem 0;
     justify-content: center;
+    border-left: 0.3rem solid #FC5E2E;
 }

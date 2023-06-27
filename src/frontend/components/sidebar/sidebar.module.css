@@ -1,16 +1,36 @@
 .sidebar{
     width: 15vw;
-    background: red;
+    background: #FDF0D6;
     min-height: 100vw;
     border: 2px solid;
     position: fixed;
     top: 4rem;
+    border-right: 0.3rem solid #FC5E2E;
     left: 0;
 }
 .optionContainer{
     list-style: none;
     text-align: left;
+
 }
 .options>a{
 text-decoration: none;
+color: black;
+font-size: 1.6rem;
+font-family: monospace;
+transition: all 0.4s;
+font-weight: 700;
+
+}
+.options>a:hover{
+    letter-spacing: 1.5px;
+}
+.options button{
+    background-color: #FFC1D1;
+    width: 10vw;
+    padding: 5px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    filter: drop-shadow(0.3rem 0.3rem black);
 }

@@ -8,18 +8,19 @@ import { makeServer } from "./server";
 
 import { AuthProvider } from "./frontend/context/authContext";
 import { UserProvider } from "./frontend/context/userContext";
+import { PostProvider } from "./frontend/context/postContext";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <UserProvider>
-        <App />
-        </UserProvider>
-      </AuthProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <AuthProvider>
+      <UserProvider>
+        <PostProvider>
+          <App />
+        </PostProvider>
+      </UserProvider>
+    </AuthProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

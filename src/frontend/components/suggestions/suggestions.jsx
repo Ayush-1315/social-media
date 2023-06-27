@@ -3,14 +3,17 @@ import {useUser} from "../../context/userContext";
 export const Suggestions=()=>{
     const {notFollowingUsers,followUser}=useUser();
     return <div className={suggestionCSS.suggestionBox}>
-        <p>Suggestions for you</p>
+        <p className={suggestionCSS.salutation}>Suggestions</p>
         <ul>
             {notFollowingUsers.length!==0?
             notFollowingUsers.map((user,index)=>{
                 const {firstName,lastName,username,_id}=user;
                 return <li key={index}>
+                    <div>
                     <p>{`${firstName} ${lastName}`}</p>
-                    <p>{username}</p>
+                    <p>@{username}</p>
+
+                    </div>
                     <button onClick={()=>followUser(_id)}>Follow</button>
                 </li>
             }):"No  more suggestion"}

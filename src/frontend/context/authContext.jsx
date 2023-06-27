@@ -7,13 +7,13 @@ import {updateUserService } from "../services/userService";
 const AuthContext =createContext();
 export const AuthProvider = ({ children }) => {
   const navigate=useNavigate()
-  const [isLogin,setIsLogin]=useState(false)
-    useEffect(() => {
-      const userData=JSON.parse(localStorage?.getItem("user"))??false
-      setIsLogin(userData?.userData);
-    },[]);
+  const [isLogin,setIsLogin]=useState(JSON.parse(localStorage?.getItem("user"))?.userData??false)
+    // useEffect(() => {
+    //   const userData=JSON.parse(localStorage?.getItem("user"))??false
+    //   setIsLogin(userData?.userData);
+    // },[]);
 
-    
+    const encodedToken=JSON.parse(localStorage.getItem("user"))?.encodedToken
     const logUser=async({username,password})=>{
       try{
         const response=await loginAuth({username,password});
@@ -71,9 +71,8 @@ export const AuthProvider = ({ children }) => {
       console.log(e)
     }
   }
- 
   return (
-    <AuthContext.Provider value={{ isLogin,logUser,createUser,logoffUser,updateUser,setIsLogin}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isLogin,logUser,createUser,logoffUser,updateUser,setIsLogin,encodedToken}}>{children}</AuthContext.Provider>
   );
 };
 export const useAuth = () => useContext(AuthContext);

@@ -11,8 +11,20 @@
     display: inline-block;
     font-weight: bolder;
 }
-.navbar a{
+.brand{
     text-decoration: none;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: #FEC24C;
+    animation:shadow 0.8s ease-in-out forwards;
+    filter: drop-shadow(0.3rem 0.3rem black);
+
+}
+@keyframes shadow {
+   0% {filter: drop-shadow(0rem 0rem #fff);}
+   100%{filter: drop-shadow(-0.2rem 0.2rem black);}
+    
 }
 .profileImage{
     height: 2.5rem;
@@ -23,14 +35,15 @@
     transition: all 0.3s;
 }
 .profileImage:hover{
-    outline: 5px solid grey;
+    transform: scale(1.2) rotate(360deg);
+    filter: hue-rotate(45deg) brightness(95%) drop-shadow(0.2em 0.2rem rgba(0, 0, 0, 0.542) );
 }
 .navbarImage{
     width:100%;
     border-radius: 50%;
 }
 .navbar{
-    background-color: red;
+    background-color: #FDF0D6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,4 +53,5 @@
     left:0;
     height: 3rem;
     z-index: 1;
+    border-bottom: 0.3rem solid #FC5E2E;
 }

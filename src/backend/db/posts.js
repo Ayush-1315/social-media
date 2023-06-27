@@ -8,13 +8,14 @@ import post1 from "../../frontend/assets/post1.jpg"
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: "a4dc0e1a-ee16-4bbc-91f4-db591f5d6712",
     content:
       {
         message:"Remedy tickly coughs with a drink of honey, lemon and water as hot as you can take.",
         media:{
           url:post1,
-          type:"image"
+          type:"image",
+          name:"post1"
         }
       },
     likes: {
@@ -22,7 +23,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
+    username: "ayush-1315",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -41,4 +42,61 @@ export const posts = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  {
+    _id: uuid(),
+    content:
+      {
+        message:"Post 1  Remedy tickly coughs with a drink of honey, lemon and water as hot as you can take.",
+        media:{
+          url:post1,
+          type:"image",
+          name:"post1"
+        }
+      },
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }, {
+    _id: uuid(),
+    content:
+      {
+        message:"Remedy tickly coughs with a drink of honey, lemon and water as hot as you can take.",
+        media:{
+          url:post1,
+          type:"image"
+        }
+      },
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }, {
+    _id: uuid(),
+    content:
+      {
+        message:"Remedy tickly coughs with a drink of honey, lemon and water as hot as you can take.",
+        media:{
+          url:post1,
+          type:"image"
+        }
+      },
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
 ];
+

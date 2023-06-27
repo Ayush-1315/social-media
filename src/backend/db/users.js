@@ -8,7 +8,7 @@ import profile1 from "../../frontend/assets/profile1.webp"
 
 export const users = [
   {
-    _id: uuid(),
+    _id: "34a7b62c-5e1d-4588-9944-3686d7a98837",
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
@@ -40,11 +40,13 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "a56d3e1b-e79f-4919-9ecc-18f17e7c93ae",
     firstName: "Ayush",
     lastName: "Raj",
     username: "ayush-1315",
     password: "rbga7mt4",
+    bio:"I am an aspiring web developer",
+    profile:"",
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),

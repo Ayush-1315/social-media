@@ -5,9 +5,9 @@ import { useAuth } from "../../context/authContext"
 export const BookmarksPage=()=>{
     const {isLogin}=useAuth();
     const navigate=useNavigate();
-    useEffect(()=>{
-        document.title="Chatster | Bookmarks";
-        isLogin && navigate('/bookmarks')
-    },[isLogin,navigate])
+    // useEffect(()=>{
+    //     document.title="Chatster | Bookmarks";
+    //     isLogin && navigate('/bookmarks')
+    // },[isLogin,navigate])
     return <>Bookmarks Here</>
 }

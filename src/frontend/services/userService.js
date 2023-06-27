@@ -17,14 +17,16 @@ export const updateUserService = async (userCred, encodedToken) => {
     console.log(e);
   }
 };
-export const getUser = async (username) => {
+
+export const getUser = async (userId) => {
   try {
-    const response = axios.get(`/api/users/${username}`);
+    const response = axios.get(`/api/users/${userId}`);
     return response;
   } catch (e) {
     return e;
   }
 };
+
 export const getAllUsers = async () => {
   try {
     const response = await axios.get("/api/users");
@@ -33,14 +35,15 @@ export const getAllUsers = async () => {
     return e;
   }
 };
+
 export const followUserService = async (userId, token) => {
   try {
     const response = await axios.post(
       `/api/users/follow/${userId}`,
       {},
-      { headers: {authorization:token} }
+      { headers: { authorization: token } }
     );
-    return response
+    return response;
   } catch (e) {
     return e;
   }
