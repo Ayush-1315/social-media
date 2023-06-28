@@ -108,6 +108,7 @@ export const PostProvider = ({ children }) => {
       console.error(e);
     }
   };
+
   useEffect(() => {
     if (encodedToken) {
       (async () => {

@@ -29,7 +29,6 @@ export const createPostService = async (postData, token) => {
     );
     return response;
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
@@ -44,21 +43,17 @@ export const getPostService = async (postId) => {
 
 export const deletePostService = async (postId, token) => {
   try {
-    const response = await axios.delete(
-      `/api/posts/${postId}`,
-      {
-        headers: {
-          authorization: token,
-        },
-      }
-    );
+    const response = await axios.delete(`/api/posts/${postId}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     return response;
   } catch (e) {
     return e;
   }
 };
 export const editPostService = async (postId, postData, token) => {
-  console.log(postData);
   try {
     const response = await axios.post(
       `/api/posts/edit/${postId}`,
@@ -73,7 +68,7 @@ export const editPostService = async (postId, postData, token) => {
     );
     return response;
   } catch (e) {
-    console.log(e);
+   return e;
   }
 };
 
@@ -108,3 +103,46 @@ export const dislikePostService = async (postId, token) => {
     return e;
   }
 };
+export const getAllBookmarksService = async (token) => {
+  try {
+    const response = await axios.get(`/api/users/bookmark`, {
+      headers: { authorization: token },
+    });
+    return response;
+  } catch (e) {
+    return e;
+  }
+};
+export const bookmarkPostService = async (postId, token) => {
+  try {
+    const response = await axios.post(
+      `/api/users/bookmark/${postId}`,
+      {},
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    return response;
+  } catch (e) {
+    return e;
+  }
+};
+
+export const removeBookmarkPostService=async(postId,token)=>{
+  try {
+    const response = await axios.post(
+      `/api/users/remove-bookmark/${postId}`,
+      {},
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    return response;
+  } catch (e) {
+    return e;
+  }
+}

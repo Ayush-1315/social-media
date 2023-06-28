@@ -4,10 +4,13 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import { usePost } from "../../context/postContext";
+import { useBookmarks } from "../../context/bookmarksContext";
+import { handleCopyLink } from "../../utils/handleCopyLink";
 export const PostCard = ({ post,onEdit,onDelete }) => {
   const navigate = useNavigate();
   const { allUsers } = useUser();
   const {likePost,dislikePost}=usePost();
+  const {bookmarkPost,bookmarkState,removeBookmark}=useBookmarks();
   const {isLogin}=useAuth();
   const { content, likes, username, _id,createdAt} = post;
   const postCreator = allUsers.find(
@@ -83,9 +86,9 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
           <p>{likes?.likeCount}</p>
           {likedByUser()?<button onClick={()=>dislikePost(_id)}> Liked</button>:<button onClick={()=>likePost(_id)}>Like</button>}
         </div>
-        <button>Bookmark</button>
+        {bookmarkState?.bookmarks.includes(_id)?<button onClick={()=>removeBookmark(_id)}>Bookmarked</button>:<button onClick={()=>bookmarkPost(_id)}>Bookmark</button>}
         <button>Comment</button>
-        <button>Share</button>
+        <button onClick={()=>handleCopyLink(_id)}>Share</button>
       </div>
     </div>
   );

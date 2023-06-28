@@ -38,7 +38,7 @@ export const Profile = () => {
     <>
     {postState?.postLoading ?<Loader/>:<>
     {showModal && (
-        <Modal>
+        <Modal closeModal={()=>setShowModal(false)}>
           <CreatePost
             user={isLogin}
             onSubmit={onSubmitFun}

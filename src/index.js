@@ -9,6 +9,8 @@ import { makeServer } from "./server";
 import { AuthProvider } from "./frontend/context/authContext";
 import { UserProvider } from "./frontend/context/userContext";
 import { PostProvider } from "./frontend/context/postContext";
+import { BookmarksProvider } from "./frontend/context/bookmarksContext";
+
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +18,9 @@ root.render(
     <AuthProvider>
       <UserProvider>
         <PostProvider>
-          <App />
+          <BookmarksProvider>        
+            <App />
+          </BookmarksProvider>  
         </PostProvider>
       </UserProvider>
     </AuthProvider>

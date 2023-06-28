@@ -36,8 +36,6 @@ export const Home = () => {
       setUsersFeed(prev=>prev.sort((a,b)=>new Date(b?.createdAt)-new Date(a?.createdAt)));
     }
   }, [postState,isLogin]);
-  console.log(postState);
-  // const { createNewPost } = useUser();
   const [showModal, setShowModal] = useState(false);
   const onSubmitFun = (newPost) => {
     createPost(newPost);
@@ -62,7 +60,7 @@ export const Home = () => {
       ) : (
         <>
           {showModal && (
-            <Modal>
+            <Modal closeModal={()=>setShowModal(false)}>
               <CreatePost
                 user={isLogin}
                 onSubmit={onSubmitFun}
