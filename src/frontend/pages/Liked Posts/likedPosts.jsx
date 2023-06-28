@@ -1,41 +1,30 @@
 import { useEffect, useState } from "react";
-import { getAllPosts } from "../../services/postsService";
+
 import { useAuth } from "../../context/authContext";
-import { useUser } from "../../context/userContext";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
 import { PostCard } from "../../components/postCard/postCard";
+import { usePost } from "../../context/postContext";
 
 export const LikedPostPage = () => {
   document.title = "Chatster | Liked";
   const { isLogin } = useAuth();
-  const { usersFeed, deletePost } = useUser();
+  const {postState,deletePost}=usePost();
   const [likedPosts, setLikedPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editPost, setEditPost] = useState(null);
-  // useEffect(()=>{
-  //     isLogin && navigate('/liked')
-  // },[isLogin,navigate])
   useEffect(() => {
-    (async () => {
-      try {
-        const { status, data } = await getAllPosts();
-        if (status === 200) {
-          setLikedPosts(
-            data?.posts?.filter(({ likes: { likedBy } }) =>
-              likedBy?.reduce(
-                (isLiked, { username }) =>
-                  username === isLogin?.username ? true : isLiked,
-                false
+    setLikedPosts(
+              postState?.posts?.filter(({ likes: { likedBy } }) =>
+                likedBy?.reduce(
+                  (isLiked, { username }) =>
+                    username === isLogin?.username ? true : isLiked,
+                  false
+                )
               )
-            )
-          );
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, [isLogin,usersFeed]);
+            );
+
+  }, [isLogin,postState]);
   const onSubmitFun = () => {
     setShowModal(false);
   };

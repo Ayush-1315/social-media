@@ -3,9 +3,11 @@ import { useUser } from "../../context/userContext";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../../context/authContext";
+import { usePost } from "../../context/postContext";
 export const PostCard = ({ post,onEdit,onDelete }) => {
   const navigate = useNavigate();
-  const { allUsers,likePost } = useUser();
+  const { allUsers } = useUser();
+  const {likePost,dislikePost}=usePost();
   const {isLogin}=useAuth();
   const { content, likes, username, _id,createdAt} = post;
   const postCreator = allUsers.find(
@@ -33,23 +35,6 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
       setShowOptions(false)
     }
   }
-  const likeToggler=()=>{
-    
-  }
-  // const postedTime=new Date(createdAt);
-  // const currentTime=new Date();
-  // const postedData={
-  //   year: currentTime.getFullYear()-postedTime.getFullYear(),
-  //   months:currentTime.getMonth()-postedTime.getMonth(),
-  //   day:currentTime.getDay()-postedTime.getDay(),
-  //   hours:currentTime.getHours()-postedTime.getHours(),
-  //   minutes:currentTime.getMinutes()-postedTime.getMinutes()
-  // }
-  // const getTimeStamp=()=>{
-  //   return Object.keys(postedData).reduce((curr,val)=>(postedData[val]>0 && curr!=="")?`${postedData[val]} ${val} ago`:"",null)
-  // }
-//  console.log( getTimeStamp());
-
   const likedByUser=()=>likes?.likedBy?.reduce((liked,{username})=>username===isLogin?.username?true:liked,false)
   return (
     <div className={postCardCSS.card}>
@@ -96,7 +81,7 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
       <div className={postCardCSS.cardFoot}>
         <div>
           <p>{likes?.likeCount}</p>
-          {likedByUser()?"Liked":likedByUser && <button onClick={()=>likePost(_id)}>Like</button>}
+          {likedByUser()?<button onClick={()=>dislikePost(_id)}> Liked</button>:<button onClick={()=>likePost(_id)}>Like</button>}
         </div>
         <button>Bookmark</button>
         <button>Comment</button>

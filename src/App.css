@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #FEF4C0;
+  min-height: 100vh;
 }
 
 .page{

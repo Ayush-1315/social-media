@@ -3,9 +3,11 @@ import { useAuth } from "./authContext";
 import {
   createPostService,
   deletePostService,
+  dislikePostService,
   editPostService,
   getAllPosts,
   getUserPostsService,
+  likePostService,
 } from "../services/postsService";
 import { useReducer } from "react";
 import { initialPostState, postReducer } from "../reducers/post-reducer";
@@ -73,6 +75,39 @@ export const PostProvider = ({ children }) => {
   const sortPost = (value) => {
     postDispatch({ type: "SORT_BY", payload: value });
   };
+  const likePost = async (postId) => {
+    try {
+      const response = await likePostService(postId, encodedToken);
+      if (response?.status === 201) {
+        postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
+        postDispatch({
+          type: "USER_POST",
+          payload: response?.data?.posts?.filter(
+            ({ username }) => username === isLogin?.username
+          ),
+        });
+      } else throw response;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const dislikePost = async (postId) => {
+    try {
+      const response = await dislikePostService(postId, encodedToken);
+      if (response?.status === 201) {
+        postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
+        postDispatch({
+          type: "USER_POST",
+          payload: response?.data?.posts?.filter(
+            ({ username }) => username === isLogin?.username
+          ),
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
   useEffect(() => {
     if (encodedToken) {
       (async () => {
@@ -88,7 +123,7 @@ export const PostProvider = ({ children }) => {
         }
       })();
     }
-  }, [isLogin]);
+  }, [isLogin, encodedToken]);
   return (
     <PostContext.Provider
       value={{
@@ -98,6 +133,8 @@ export const PostProvider = ({ children }) => {
         deletePost,
         createPost,
         sortPost,
+        likePost,
+        dislikePost,
       }}
     >
       {children}

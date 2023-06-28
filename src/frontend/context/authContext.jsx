@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect,useState} from "react";
+import { createContext, useContext,useState} from "react";
 import { useNavigate} from "react-router";
 
 import { loginAuth, signupAuth } from "../services/authService";
@@ -8,11 +8,6 @@ const AuthContext =createContext();
 export const AuthProvider = ({ children }) => {
   const navigate=useNavigate()
   const [isLogin,setIsLogin]=useState(JSON.parse(localStorage?.getItem("user"))?.userData??false)
-    // useEffect(() => {
-    //   const userData=JSON.parse(localStorage?.getItem("user"))??false
-    //   setIsLogin(userData?.userData);
-    // },[]);
-
     const encodedToken=JSON.parse(localStorage.getItem("user"))?.encodedToken
     const logUser=async({username,password})=>{
       try{

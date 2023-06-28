@@ -1,39 +1,28 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
-import { useAuth } from "../../context/authContext";
 
-import profilePage from "./profile.module.css";
+import { useAuth } from "../../context/authContext";
 import { PostCard } from "../../components/postCard/postCard";
-import { useUser } from "../../context/userContext";
 import { useState } from "react";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
 import { usePost } from "../../context/postContext";
 import { Loader } from "../../components/loader/loader";
+import profilePage from "./profile.module.css";
 
 export const Profile = () => {
-  const navigate = useNavigate();
   const { logoffUser, isLogin, updateUser } = useAuth();
-  const {getPostByUser,deletedPosts,usersFeed}=useUser()
-  const [userPosts,setUserPosts]=useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editPost, setEditPost] = useState(null);
-
+  
+  document.title = `${isLogin?.username} | Profile`;
   const {getUserPosts,postState,deletePost}=usePost();
   useEffect(() => {
-    // if (isLogin) {
-    //   document.title = `${isLogin?.username} | Profile`;
-    //   (async()=>{
-    //     const response=await getPostByUser(isLogin.username);
-    //     setUserPosts(response?.filter(({_id})=>!deletedPosts.includes(_id)));
-    //   })()
     (async()=>
     {
       await getUserPosts(isLogin?.username);
     })()
     // eslint-disable-next-line
   }, [isLogin]);
-  console.log(postState)
   const onSubmitFun = () => {
     setShowModal(false);
   };
@@ -47,7 +36,7 @@ export const Profile = () => {
   const onDelete = (postId) => deletePost(postId);
   return (
     <>
-    {postState?.userPosts?.length===0 ?<Loader/>:<>
+    {postState?.postLoading ?<Loader/>:<>
     {showModal && (
         <Modal>
           <CreatePost
@@ -98,7 +87,7 @@ export const Profile = () => {
           <button onClick={() => logoffUser()}>Log Out</button>
           <div className={profilePage.postContainer}>
             <h2>Your Posts</h2>
-            {postState?.userPosts.map((post, index) => (
+            {postState.userPosts?.length===0 ? <h2> No post</h2>:postState?.userPosts.map((post, index) => (
               <PostCard post={post} key={index} onEdit={onEditFun}
               onDelete={onDelete} />
             ))}

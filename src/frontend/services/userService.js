@@ -48,3 +48,17 @@ export const followUserService = async (userId, token) => {
     return e;
   }
 };
+
+export const unfollowUserService=async(userId,token)=>{
+  try{
+    const response=await axios.post(`/api/users/unfollow/${userId}`,
+    {},
+    {
+      headers:{authorization:token}
+    })
+    return response;
+  }
+  catch(e){
+    return e
+  }
+}

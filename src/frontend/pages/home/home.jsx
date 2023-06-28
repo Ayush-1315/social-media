@@ -2,7 +2,6 @@ import { useAuth } from "../../context/authContext";
 
 import home from "./home.module.css";
 import { CreatePost } from "../../components/createPost/createPost";
-import { useUser } from "../../context/userContext";
 import { PostCard } from "../../components/postCard/postCard";
 import { Modal } from "../../components/Modal/modal";
 

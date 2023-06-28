@@ -96,7 +96,7 @@ export const likePostService = async (postId, token) => {
 
 export const dislikePostService = async (postId, token) => {
   try {
-    const response = await axios.get(
+    const response = await axios.post(
       `/api/posts/dislike/${postId}`,
       {},
       {
