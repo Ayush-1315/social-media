@@ -7,7 +7,7 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
   const navigate = useNavigate();
   const { allUsers,likePost } = useUser();
   const {isLogin}=useAuth();
-  const { content, likes, username, _id} = post;
+  const { content, likes, username, _id,createdAt} = post;
   const postCreator = allUsers.find(
     ({ username: searchUser }) => searchUser === username
   );
@@ -36,6 +36,20 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
   const likeToggler=()=>{
     
   }
+  // const postedTime=new Date(createdAt);
+  // const currentTime=new Date();
+  // const postedData={
+  //   year: currentTime.getFullYear()-postedTime.getFullYear(),
+  //   months:currentTime.getMonth()-postedTime.getMonth(),
+  //   day:currentTime.getDay()-postedTime.getDay(),
+  //   hours:currentTime.getHours()-postedTime.getHours(),
+  //   minutes:currentTime.getMinutes()-postedTime.getMinutes()
+  // }
+  // const getTimeStamp=()=>{
+  //   return Object.keys(postedData).reduce((curr,val)=>(postedData[val]>0 && curr!=="")?`${postedData[val]} ${val} ago`:"",null)
+  // }
+//  console.log( getTimeStamp());
+
   const likedByUser=()=>likes?.likedBy?.reduce((liked,{username})=>username===isLogin?.username?true:liked,false)
   return (
     <div className={postCardCSS.card}>
@@ -56,6 +70,7 @@ export const PostCard = ({ post,onEdit,onDelete }) => {
             <p>{`${firstName} ${lastName}`}</p>
             <p>@{username}</p>
           </div>
+          <div>{new Date(createdAt).toDateString().split(" ").slice(1,4).join(" ")}</div>
         </div>
 
         <div className={postCardCSS.headerOptions}>

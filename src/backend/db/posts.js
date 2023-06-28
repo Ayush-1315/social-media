@@ -19,12 +19,12 @@ export const posts = [
         }
       },
     likes: {
-      likeCount: 0,
+      likeCount: 6,
       likedBy: [],
       dislikedBy: [],
     },
     username: "ayush-1315",
-    createdAt: formatDate(),
+    createdAt: "2021-03-02T10:15:23+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -34,12 +34,12 @@ export const posts = [
       message: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
      },
     likes: {
-      likeCount: 0,
+      likeCount: 34,
       likedBy: [],
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "2023-02-16T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -54,12 +54,12 @@ export const posts = [
         }
       },
     likes: {
-      likeCount: 0,
+      likeCount: 7,
       likedBy: [],
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "2021-03-07T10:15:23+05:30",
     updatedAt: formatDate(),
   }, {
     _id: uuid(),
@@ -72,12 +72,12 @@ export const posts = [
         }
       },
     likes: {
-      likeCount: 0,
+      likeCount: 8,
       likedBy: [],
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "2022-09-29T10:15:21+05:30",
     updatedAt: formatDate(),
   }, {
     _id: uuid(),
@@ -90,12 +90,12 @@ export const posts = [
         }
       },
     likes: {
-      likeCount: 0,
+      likeCount: 13,
       likedBy: [],
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "2022-01-16:15:02+18:30",
     updatedAt: formatDate(),
   },
 ];

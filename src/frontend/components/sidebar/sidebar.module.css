@@ -10,17 +10,17 @@
 }
 .optionContainer{
     list-style: none;
-    text-align: left;
+    text-align: center;
+    padding:0;
 
 }
 .options>a{
 text-decoration: none;
 color: black;
-font-size: 1.6rem;
+font-size: 1.3rem;
 font-family: monospace;
 transition: all 0.4s;
 font-weight: 700;
-
 }
 .options>a:hover{
     letter-spacing: 1.5px;
@@ -33,4 +33,9 @@ font-weight: 700;
     font-size: 1.1rem;
     font-weight: 600;
     filter: drop-shadow(0.3rem 0.3rem black);
+    transition: all 0.3s;
+}
+.options button:hover{
+    filter: drop-shadow(0.4rem 0.4rem black);
+
 }

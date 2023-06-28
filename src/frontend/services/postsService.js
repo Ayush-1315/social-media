@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getUserPosts = async (username) => {
+export const getUserPostsService = async (username) => {
   try {
     const response = await axios.get(`/api/posts/user/${username}`);
     return response;
@@ -44,16 +44,14 @@ export const getPostService = async (postId) => {
 
 export const deletePostService = async (postId, token) => {
   try {
-    const response = await axios.get(
+    const response = await axios.delete(
       `/api/posts/${postId}`,
-      {},
       {
         headers: {
           authorization: token,
         },
       }
     );
-    console.log(response);
     return response;
   } catch (e) {
     return e;

@@ -3,7 +3,7 @@ import { getAllUsers } from "../services/userService";
 import { useAuth } from "./authContext";
 import {
   createPostService,
-  getUserPosts,
+  getUserPostsService,
   deletePostService,
   likePostService
 } from "../services/postsService";
@@ -18,10 +18,10 @@ export const UserProvider = ({ children }) => {
   const notFollowingUsers = allUsers.filter(
     ({ username }) => !followingUsers?.includes(username) && username!==isLogin?.username
   );  
-  
+
   const getPostByUser = async (username) => {
     try {
-      const response = await getUserPosts(username);
+      const response = await getUserPostsService(username);
       if (response?.status === 200) {
         return response?.data?.posts;
       }
@@ -44,7 +44,7 @@ export const UserProvider = ({ children }) => {
     })();
     (async () => {
       try {
-        const response = await getUserPosts(isLogin?.username);
+        const response = await getUserPostsService(isLogin?.username);
         if (response?.status === 200) {
           setUsersFeed(response?.data?.posts?.filter(({_id})=>!deletedPosts.includes(_id)));
         }
@@ -56,9 +56,8 @@ export const UserProvider = ({ children }) => {
   useEffect(()=>{
     
     (()=>{
-      console.log("userContext ")
           followingUsers?.map(async(user)=>{
-          const response=await getUserPosts(user)
+          const response=await getUserPostsService(user)
           setUsersFeed(prev=>[...prev,...response?.data?.posts])
           ;})
       
@@ -107,7 +106,8 @@ const deletePost=async(postId)=>{
   )?.encodedToken;
   try {
     const response = await deletePostService(postId, encodedToken);
-    if(response?.status===200){
+    console.log(response?.data?.posts)
+    if(response?.status===201){
       setDeletedPosts(prev=>[...prev,response?.data?.post?._id]);
     }
     else throw response;

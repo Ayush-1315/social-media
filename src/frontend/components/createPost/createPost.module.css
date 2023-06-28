@@ -1,6 +1,5 @@
 .box {
     border: 2px solid black;
-    border-radius: 10px;
     width: fit-content;
     width: 100%;
   }
@@ -98,7 +97,6 @@
     padding: 0.5rem 1rem;
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 5px;
     background-color: blue;
     color: white;
     cursor: pointer;

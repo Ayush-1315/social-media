@@ -1,25 +1,107 @@
-import { createContext,useContext } from "react";
+import { createContext, useContext } from "react";
 import { useAuth } from "./authContext";
-import { editPostService } from "../services/postsService";
-import { useUser } from "./userContext";
-const PostContext=createContext();
-export const PostProvider=({children})=>{
-const {encodedToken} =useAuth()
-const {setUsersFeed} =useUser();
-    const editPost=async(postId,postData)=>{
-        try{
-            const response=await editPostService(postId,{content:{...postData}},encodedToken);
-            console.log(response)
-            if(response?.status===201){
-                setUsersFeed(response?.data?.posts)
-            }
+import {
+  createPostService,
+  deletePostService,
+  editPostService,
+  getAllPosts,
+  getUserPostsService,
+} from "../services/postsService";
+import { useReducer } from "react";
+import { initialPostState, postReducer } from "../reducers/post-reducer";
+import { useEffect } from "react";
+const PostContext = createContext();
+export const PostProvider = ({ children }) => {
+  const { encodedToken, isLogin } = useAuth();
+  const [postState, postDispatch] = useReducer(postReducer, initialPostState);
+  const getUserPosts = async (username) => {
+    postDispatch({ type: "USER_POST", payload: [] });
+    try {
+      const response = await getUserPostsService(username);
+      if (response?.status === 200) {
+        postDispatch({ type: "USER_POST", payload: response?.data?.posts });
+      } else throw response;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const editPost = async (postId, postData) => {
+    try {
+      const response = await editPostService(
+        postId,
+        { content: { ...postData } },
+        encodedToken
+      );
+      if (response?.status === 201) {
+        postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
+        postDispatch({
+          type: "USER_POST",
+          payload: response?.data?.posts?.filter(
+            ({ username }) => username === isLogin?.username
+          ),
+        });
+      } else throw response;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const deletePost = async (postId) => {
+    try {
+      const response = await deletePostService(postId, encodedToken);
+      if (response?.status === 201) {
+        postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
+        postDispatch({
+          type: "USER_POST",
+          payload: response?.data?.posts?.filter(
+            ({ username }) => username === isLogin?.username
+          ),
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  const createPost = async (postData) => {
+    try {
+      const response = await createPostService(postData, encodedToken);
+      if (response?.status === 201) {
+        postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
+      }
+    } catch (e) {}
+  };
+  const sortPost = (value) => {
+    postDispatch({ type: "SORT_BY", payload: value });
+  };
+  useEffect(() => {
+    if (encodedToken) {
+      (async () => {
+        postDispatch({ type: "POST_LOADING", payload: true });
+        try {
+          const { status, data } = await getAllPosts();
+          if (status === 200) {
+            postDispatch({ type: "SET_POSTS", payload: data?.posts });
+            postDispatch({ type: "POST_LOADING", payload: false });
+          }
+        } catch (e) {
+          console.error(e);
         }
-        catch(e){
-            console.log(e)
-        }
-}
-    return <PostContext.Provider value={{editPost}}>
-        {children}
+      })();
+    }
+  }, [isLogin]);
+  return (
+    <PostContext.Provider
+      value={{
+        editPost,
+        postState,
+        getUserPosts,
+        deletePost,
+        createPost,
+        sortPost,
+      }}
+    >
+      {children}
     </PostContext.Provider>
-}
-export const usePost=()=>useContext(PostContext);
+  );
+};
+export const usePost = () => useContext(PostContext);

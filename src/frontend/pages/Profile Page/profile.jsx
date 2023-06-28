@@ -8,24 +8,32 @@ import { useUser } from "../../context/userContext";
 import { useState } from "react";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
+import { usePost } from "../../context/postContext";
+import { Loader } from "../../components/loader/loader";
 
 export const Profile = () => {
   const navigate = useNavigate();
   const { logoffUser, isLogin, updateUser } = useAuth();
-  const {getPostByUser,deletedPosts,deletePost,usersFeed}=useUser()
+  const {getPostByUser,deletedPosts,usersFeed}=useUser()
   const [userPosts,setUserPosts]=useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editPost, setEditPost] = useState(null);
+
+  const {getUserPosts,postState,deletePost}=usePost();
   useEffect(() => {
-    if (isLogin) {
-      document.title = `${isLogin?.username} | Profile`;
-      (async()=>{
-        const response=await getPostByUser(isLogin.username);
-        setUserPosts(response?.filter(({_id})=>!deletedPosts.includes(_id)));
-      })()
-    }
+    // if (isLogin) {
+    //   document.title = `${isLogin?.username} | Profile`;
+    //   (async()=>{
+    //     const response=await getPostByUser(isLogin.username);
+    //     setUserPosts(response?.filter(({_id})=>!deletedPosts.includes(_id)));
+    //   })()
+    (async()=>
+    {
+      await getUserPosts(isLogin?.username);
+    })()
     // eslint-disable-next-line
-  }, [isLogin,navigate,usersFeed]);
+  }, [isLogin]);
+  console.log(postState)
   const onSubmitFun = () => {
     setShowModal(false);
   };
@@ -39,6 +47,7 @@ export const Profile = () => {
   const onDelete = (postId) => deletePost(postId);
   return (
     <>
+    {postState?.userPosts?.length===0 ?<Loader/>:<>
     {showModal && (
         <Modal>
           <CreatePost
@@ -67,7 +76,7 @@ export const Profile = () => {
                 <p>Following</p>
               </div>
               <div className={profilePage.status}>
-                <p>{userPosts.length}</p>
+                <p>{postState?.userPosts.length}</p>
                 <p>Posts</p>
               </div>
               <div className={profilePage.status}>
@@ -89,13 +98,13 @@ export const Profile = () => {
           <button onClick={() => logoffUser()}>Log Out</button>
           <div className={profilePage.postContainer}>
             <h2>Your Posts</h2>
-            {userPosts.map((post, index) => (
+            {postState?.userPosts.map((post, index) => (
               <PostCard post={post} key={index} onEdit={onEditFun}
               onDelete={onDelete} />
             ))}
           </div>
         </div>
-      </div>
+      </div></>}
     </>
   );
 };
