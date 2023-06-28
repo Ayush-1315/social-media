@@ -14,6 +14,7 @@ export const users = [
     username: "adarshbalika",
     password: "adarshBalika123",
     bio:"I am an aspiring web developer",
+    website:"https://chatstergram-develop.netlify.app/",
     profile:profile1,
     bookmarks: [],
     createdAt: formatDate(),

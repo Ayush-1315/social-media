@@ -18,7 +18,7 @@ export const LoginPage = () => {
         <div className="loginLeft"></div>
         <div className="loginRight"> 
         Login Here!
-        <LoginForm  signupRoute="/signup"/>
+        <LoginForm  signupRoute="/signup" onFinish={(data)=>logUser(data)}/>
         <button onClick={()=>logUser({username:'adarshbalika',password:'adarshBalika123'})}>Test Credentials</button>
         </div>
       </div>

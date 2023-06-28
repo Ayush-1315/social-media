@@ -1,0 +1,27 @@
+.container {
+  background-color: green;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inputWrapper {
+  display: flex;
+}
+
+.inputContainer {
+  background-color: red;
+
+}
+
+.textArea {
+  display: block;
+  resize: none;
+
+}

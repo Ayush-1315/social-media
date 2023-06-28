@@ -1,9 +1,10 @@
 import modalCSS from "./modal.module.css";
 export const Modal=({children,closeModal})=>{
-    return <div className={modalCSS?.modalWrapper}>
-        <div className={modalCSS.modalContainer}>
+    const wrapperHandler=()=>closeModal();
+    const containerHandler=(e)=>e.stopPropagation()
+    return <div className={modalCSS?.modalWrapper} onClick={wrapperHandler}>
+        <div className={modalCSS.modalContainer} onClick={containerHandler}>
         {children}
-        <div><button onClick={()=>closeModal()}>Close</button></div>
         </div>
     </div>
 }

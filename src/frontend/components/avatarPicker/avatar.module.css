@@ -1,0 +1,22 @@
+.avatarPick {
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .avatarPicker{
+    background-color: yellow;
+    padding: 0.5rem;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3,7vw);
+  }
+  .avatarPicker input[type="radio"] {
+    display: none;
+  }

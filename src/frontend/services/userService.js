@@ -1,20 +1,19 @@
 import axios from "axios";
 
-export const updateUserService = async (userCred, encodedToken) => {
-  console.log(userCred, encodedToken);
+export const updateUserService = async (userData, encodedToken) => {
   try {
     const response = await axios.post(
       "/api/users/edit",
-      { ...userCred },
+      { userData },
       {
         headers: {
           authorization: encodedToken,
         },
       }
     );
-    console.log(response);
+    return response;
   } catch (e) {
-    console.log(e);
+    return e;
   }
 };
 
@@ -49,16 +48,17 @@ export const followUserService = async (userId, token) => {
   }
 };
 
-export const unfollowUserService=async(userId,token)=>{
-  try{
-    const response=await axios.post(`/api/users/unfollow/${userId}`,
-    {},
-    {
-      headers:{authorization:token}
-    })
+export const unfollowUserService = async (userId, token) => {
+  try {
+    const response = await axios.post(
+      `/api/users/unfollow/${userId}`,
+      {},
+      {
+        headers: { authorization: token },
+      }
+    );
     return response;
+  } catch (e) {
+    return e;
   }
-  catch(e){
-    return e
-  }
-}
+};

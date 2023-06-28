@@ -46,7 +46,7 @@ export const errorToast = (message) => {
 };
 function App() {
   const currenntLocation=useLocation().pathname
-  const showComponents=(currenntLocation!=="/" && currenntLocation!=="/login" && currenntLocation!=="/signup" && currenntLocation!=="/mockman")
+  const showComponents=(currenntLocation!=="/" && currenntLocation!=="/login" && currenntLocation!=="/signup" && currenntLocation!=="/mockman");
   return (
     <div className="App">
       {showComponents && <Navbar/>}

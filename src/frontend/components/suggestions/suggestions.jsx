@@ -16,7 +16,7 @@ export const Suggestions = () => {
                 <p>{`${firstName} ${lastName}`}</p>
                 <p>@{username}</p>
               </div>
-             {isLogin?.following.reduce((isFollowing,{username:storedFollowing})=>storedFollowing===username?true:isFollowing,false)?<button onClick={()=>unfollowUser(_id)}> Following</button>: <button onClick={() => followUser(_id)}>Follow +</button>}
+             {isLogin?.following?.reduce((isFollowing,{username:storedFollowing})=>storedFollowing===username?true:isFollowing,false)?<button onClick={()=>unfollowUser(_id)}> Following</button>: <button onClick={() => followUser(_id)}>Follow +</button>}
             </li>
           );
         })}

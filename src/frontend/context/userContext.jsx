@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getAllUsers, unfollowUserService } from "../services/userService";
+import { getAllUsers, unfollowUserService, updateUserService } from "../services/userService";
 import { useAuth } from "./authContext";
 import { followUserService } from "../services/userService";
 const UserContext = createContext();
@@ -41,12 +41,27 @@ export const UserProvider = ({ children }) => {
       console.error(e);
     }
   };
+
+  const updateUser=async(userData)=>{
+    try{
+const response=await updateUserService(userData,encodedToken);
+if(response?.status===201){
+  // console.log()
+  setIsLogin({...response?.data?.user})
+}
+else throw response
+    }
+catch(e){
+  console.error(e);
+}
+  }
   return (
     <UserContext.Provider
       value={{
         allUsers,
         followUser,
         unfollowUser,
+        updateUser
       }}
     >
       {children}
