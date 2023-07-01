@@ -9,8 +9,8 @@ import { useState } from "react";
 import { usePost } from "../../context/postContext";
 import { useEffect } from "react";
 import { Loader } from "../../components/loader/loader";
-export const Home = () => {
-  document.title = "Chatster | Home";
+export const Home = ({onComment}) => {
+  document.title = "ChatsterGram | Home";
   const { isLogin } = useAuth();
   const [usersFeed, setUsersFeed] = useState([]);
   const { postState, deletePost,createPost } = usePost();
@@ -39,7 +39,6 @@ export const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const onSubmitFun = (newPost) => {
     createPost(newPost);
-    console.log(newPost);
     setShowModal(false);
   };
 
@@ -78,6 +77,7 @@ export const Home = () => {
                 post={post}
                 onEdit={onEditFun}
                 onDelete={onDelete}
+                onComment={onComment}
               />
             ))}
           </div>

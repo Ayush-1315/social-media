@@ -8,7 +8,7 @@ import { usePost } from "../../context/postContext";
 import { Loader } from "../../components/loader/loader";
 
 export const LikedPostPage = () => {
-  document.title = "Chatster | Liked";
+  document.title = "ChatsterGram | Liked";
   const { isLogin } = useAuth();
   const { postState, deletePost } = usePost();
   const [likedPosts, setLikedPosts] = useState([]);
@@ -16,6 +16,7 @@ export const LikedPostPage = () => {
   const [editPost, setEditPost] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true)
     setLikedPosts(
       postState?.posts?.filter(({ likes: { likedBy } }) =>
         likedBy?.reduce(
@@ -25,6 +26,7 @@ export const LikedPostPage = () => {
         )
       )
     );
+    setIsLoading(false);
   }, [isLogin, postState]);
   const onSubmitFun = () => {
     setShowModal(false);

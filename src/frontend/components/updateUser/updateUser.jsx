@@ -61,7 +61,7 @@ export const UserEdit = ({
             </Modal>
           )}
         </div>
-        <button onClick={avatarPickerToggler}>
+        <button className={userEdit.selectAvatar}onClick={avatarPickerToggler}>
           Select Avatar
         </button>
         <div className={userEdit?.inputWrapper}>
@@ -85,25 +85,27 @@ export const UserEdit = ({
           </div>
         </div>
         <div>
-          <label htmlFor="bio">Bio</label>
+          <label htmlFor="bio" className={userEdit.updtuserBio}>Bio</label>
           <textarea
             className={userEdit?.textArea}
-            cols="30"
-            rows="10"
+           
             onChange={(e) => changeHandler("bio", e.target.value)}
             defaultValue={formData?.bio}
             id="bio"
           />
+          <div className={userEdit.updateUserFooter}>
           <label htmlFor="website">Website</label>
           <input
-            type="text"
+            type="url"
             id="website"
             defaultValue={formData?.website}
             onChange={(e) => changeHandler("website", e.target.value)}
           />
-        </div>
-        <input type="submit" value="update" />
+        
+        <input type="submit" value="Update" />
         <input type="reset" value="Discard" onClick={discardHandler} />
+        </div>
+        </div>
       </form>
     </div>
   );

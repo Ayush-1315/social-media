@@ -3,7 +3,8 @@ import { useAuth } from "../../context/authContext";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getUser } from "../../services/userService";
-export const UserPage=()=>{
+export const UserPage=({onComment})=>{
+    console.log(onComment);
     const [currentUser,setCurrentUser]=useState(null)
     const navigate=useNavigate();
     const {isLogin}=useAuth();
@@ -25,5 +26,6 @@ export const UserPage=()=>{
         }
     },[isLogin,navigate,user])
 console.log(currentUser)
+document.title=`ChatsterGram | ${currentUser?.username}`;
     return <>{user}</>
 }

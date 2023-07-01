@@ -11,7 +11,7 @@ import profilePage from "./profile.module.css";
 import { UserEdit } from "../../components/updateUser/updateUser";
 import { useUser } from "../../context/userContext";
 
-export const Profile = () => {
+export const Profile = ({onComment}) => {
   const { logoffUser, isLogin} = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [editPost, setEditPost] = useState(null);
@@ -81,9 +81,9 @@ export const Profile = () => {
                   alt={isLogin?.username}
                   className={profilePage.profileImg}
                 />
-                <h2>{`${isLogin?.firstName} ${isLogin?.lastName}`}</h2>
-                <p>@{isLogin?.username}</p>
-                <p>{isLogin?.bio}</p>
+                <h2 className={profilePage.userDisplayName}>{`${isLogin?.firstName} ${isLogin?.lastName}`}</h2>
+                <p className={profilePage.userDisplay}>@{isLogin?.username}</p>
+                <p className={profilePage.userDisplayBio}>{isLogin?.bio}</p>
                 <div className={profilePage.profileSociety}>
                   <div className={profilePage.status}>
                     <p>{isLogin?.following.length}</p>
@@ -112,6 +112,7 @@ export const Profile = () => {
                       key={index}
                       onEdit={onEditFun}
                       onDelete={onDelete}
+                      onComment={onComment}
                     />
                   ))
                 )}

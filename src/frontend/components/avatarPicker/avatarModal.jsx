@@ -19,8 +19,8 @@ export const AvatarPicker = ({ onSubmit }) => {
             {" "}
             <label htmlFor={avatar}>
               <span
-                className={avatarCSS?.avatarPick}
-                style={{ backgroundImage: `url(${avatar})` }}
+                className={selectedAvatar===avatar?avatarCSS.selectedAvatar:avatarCSS?.avatarPick}
+                style={{ backgroundImage: `url(${avatar})`}}
               ></span>
             </label>
             <input

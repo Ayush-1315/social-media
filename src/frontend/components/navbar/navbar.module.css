@@ -33,6 +33,9 @@
     display: inline-block;
     border-radius: 50%;
     transition: all 0.3s;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .profileImage:hover{
     transform: scale(1.2) rotate(360deg);

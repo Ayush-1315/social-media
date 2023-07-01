@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCompass,faMagnifyingGlass,faBookmark} from '@fortawesome/free-solid-svg-icons';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import navbar from "./navbar.module.css";
 import { useAuth } from "../../context/authContext";
 export const Navbar=()=>{
@@ -12,9 +12,7 @@ export const Navbar=()=>{
         <FontAwesomeIcon icon={faMagnifyingGlass} className={navbar.navIcons}/>
         </div>
         <div>
-         
-            {/* <Link to="/profile"><span className={navbar.profileIcon}>A</span></Link> */}
-            <Link to="/profile">{isLogin?.profile===""?<span className={navbar.profileIcon}>{isLogin?.username?.[0]?.toUpperCase()}</span>:<span className={navbar.profileImage}><img src={isLogin?.profile} alt="profile"className={navbar.navbarImage}/></span>}</Link>
+            <Link to="/profile">{isLogin?.profile===""?<span className={navbar.profileIcon}>{isLogin?.username?.[0]?.toUpperCase()}</span>:<span className={navbar.profileImage} style={{backgroundImage:`url(${isLogin?.profile})`}}></span>}</Link>
         </div>
     </nav>
 }

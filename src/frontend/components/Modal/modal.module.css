@@ -12,8 +12,14 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    min-width: 60vw;
+    min-width: 35vw;
     min-height: 30vh;
-    background-color:white;
-
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fade 0.6s ease-in-out forwards;
+}
+@keyframes fade {
+    0%{opacity: 0;}
+    100%{opacity:1.0;}
 }

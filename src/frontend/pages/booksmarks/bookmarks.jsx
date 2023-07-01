@@ -7,7 +7,7 @@ import { Loader } from "../../components/loader/loader";
 import { PostCard } from "../../components/postCard/postCard";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
-export const BookmarksPage = () => {
+export const BookmarksPage = ({onComment}) => {
   const { isLogin, encodedToken } = useAuth();
   const { postState,deletePost,createPost} = usePost();
   const [bookmarks, setBookmarks] = useState([]);
@@ -15,7 +15,7 @@ export const BookmarksPage = () => {
   const [editPost, setEditPost] = useState(null);
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
-    document.title = "Chatster | Bookmarks";
+    document.title = "ChatsterGram | Bookmarks";
     (async () => {
       setIsLoading(true);
       try {
@@ -67,7 +67,7 @@ export const BookmarksPage = () => {
           )}
           <div>
           <h2>Bookmarks</h2>
-        {bookmarks.map((post,index)=><PostCard post={post} key={index} onEdit={onEditFun} onDelete={onDelete}/>)}
+        {bookmarks.map((post,index)=><PostCard post={post} key={index} onEdit={onEditFun} onDelete={onDelete} onComment={onComment}/>)}
           </div>
         </>
       )}

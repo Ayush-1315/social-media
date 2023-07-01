@@ -66,7 +66,7 @@ export const PostProvider = ({ children }) => {
   };
   const createPost = async (postData) => {
     try {
-      const response = await createPostService(postData, encodedToken);
+      const response = await createPostService({...postData,comments:[]}, encodedToken);
       if (response?.status === 201) {
         postDispatch({ type: "SET_POSTS", payload: response?.data?.posts });
       }
@@ -108,6 +108,20 @@ export const PostProvider = ({ children }) => {
       console.error(e);
     }
   };
+const addComment=(postId,comment)=>{
+const post=postState?.posts?.find(({_id})=>_id===postId);
+if(post!==undefined){
+  const data={
+    _id:isLogin._id,
+    username:isLogin.username,
+    firstName:isLogin.firstName,
+    lastName:isLogin.lastName,
+    comment
+  }
+  postDispatch({type:"SET_POSTS",payload:postState?.posts?.map(post=>{
+    return post._id===postId?({...post,comments:[...post.comments,data]}):post})})
+}
+}
 
   useEffect(() => {
     if (encodedToken) {
@@ -136,6 +150,7 @@ export const PostProvider = ({ children }) => {
         sortPost,
         likePost,
         dislikePost,
+        addComment
       }}
     >
       {children}

@@ -1,8 +1,17 @@
 .container {
-  background-color: green;
+  background-color:#F5BC47 ;
   position: relative;
   display: flex;
   justify-content: center;
+  border: 0.3rem solid black;
+  width: 35vw;
+  min-height: 70vh;
+  filter: drop-shadow(0.5rem 0.5rem black);
+}
+.container h2{
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 .profile {
@@ -10,18 +19,81 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.inputContainer input{
+  font-size: 1.2rem;
+  height: 6vh;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 800;
+  background-color: #FE7E16;
+  outline: none;
+  border: 0.2rem solid black;
+
+}
 
 .inputWrapper {
   display: flex;
+  justify-content: space-between;
 }
 
 .inputContainer {
-  background-color: red;
-
+  
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+flex-wrap: wrap;
 }
 
 .textArea {
   display: block;
   resize: none;
+  text-align: justify;
+  width: 30vw;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0;
+  border: 0.3rem solid black;
 
+}
+.updateUserFooter{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: monospace;
+  font-size: 1.3em;
+  height: 6vh;
+  font-weight: 700;
+}
+.updateUserFooter input[type=url]{
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  outline: none;
+  border: 0.2rem solid black;
+  width: 15vw;
+}
+.updateUserFooter input[type=submit],input[type=reset]{
+  height: 4vh;
+  width: 5vw;
+  background-color: #FE7E16;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: 0.2rem solid black;
+
+}
+.updtuserBio{
+  font-family: monospace;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.selectAvatar{
+  background-color: #FE7E16;
+  width: 9vw;
+  height: 4vh;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: 700;
+  border: 0.2rem solid black;
 }

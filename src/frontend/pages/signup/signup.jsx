@@ -2,6 +2,7 @@ import { useAuth } from "../../context/authContext";
 // import { signupAuth } from "../../services/authService"
 
 export const SignupPage=()=>{
+    document.title="ChatsterGram | SignUp"
     const {createUser}=useAuth();
     const setUser=async()=>{
          createUser({

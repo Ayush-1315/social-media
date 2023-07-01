@@ -6,6 +6,7 @@ import './loginPage.css'
 export const LoginPage = () => {
   const { logUser,isLogin } = useAuth();
   const navigate=useNavigate();
+  document.title="ChatsterGram | Login"
   useEffect(()=>{
     isLogin && navigate('/home');
   },[isLogin,navigate])

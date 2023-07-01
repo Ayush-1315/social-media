@@ -7,11 +7,15 @@
     top: 4rem;
     border-right: 0.3rem solid #FC5E2E;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .optionContainer{
     list-style: none;
-    text-align: center;
+    text-align: left;
     padding:0;
+    width: fit-content;
 
 }
 .options>a{
@@ -33,7 +37,7 @@ font-weight: 700;
     font-size: 1.1rem;
     font-weight: 600;
     filter: drop-shadow(0.3rem 0.3rem black);
-    transition: all 0.3s;
+    transition: all 0.1s;
 }
 .options button:hover{
     filter: drop-shadow(0.4rem 0.4rem black);
