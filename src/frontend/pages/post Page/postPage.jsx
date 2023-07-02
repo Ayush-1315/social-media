@@ -23,18 +23,6 @@ export const PostPage = ({onComment}) => {
   useEffect(() => {
     setIsLoading(true);
     if (isLogin) {
-      // (async () => {
-      //   try {
-      //     const response = await getPostService(pId);
-      //     if (response?.status === 200) {
-      //       setCurrentPost(response?.data?.post);
-      //       setIsLoading(false);
-      //     } else throw response;
-      //   } catch (e) {
-      //     console.log(e);
-      //     setIsLoading(false);
-      //   }
-      // })();
       if(pId!==""){
         setCurrentPost(postState?.posts?.find(({_id})=>_id===pId))
         setIsLoading(false);
@@ -43,7 +31,6 @@ export const PostPage = ({onComment}) => {
   }, [pId, isLogin,postState]);
   const onSubmitFun = (newPost) => {
     createPost(newPost);
-    console.log(newPost);
     setShowModal(false);
   };
 
@@ -64,7 +51,6 @@ export const PostPage = ({onComment}) => {
     )
   );
 const clickHandler=(userId)=>navigate(`/user/${userId}`);
-console.log(currentPost);
   return (
     <>
     {isLoading?<Loader/>:<>

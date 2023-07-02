@@ -105,6 +105,12 @@ export const PostCard = ({ post, onEdit, onDelete,onComment}) => {
           {content?.media?.type === "image" && (
             <img src={content?.media?.url} alt={_id} />
           )}
+         <div onClick={e=>e.preventDefault()}>
+         {content?.media?.type==="video" && <video controls width="300px">
+            <source src={content?.media?.url} type="video/mp4"></source>
+            </video>}
+         </div>
+          
         </div>
       </div>
       <div className={postCardCSS.cardFoot}>

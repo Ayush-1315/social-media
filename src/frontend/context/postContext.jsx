@@ -45,7 +45,7 @@ export const PostProvider = ({ children }) => {
         });
       } else throw response;
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
   const deletePost = async (postId) => {

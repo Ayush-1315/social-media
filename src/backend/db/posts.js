@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 import post1 from "../../frontend/assets/post1.jpg";
 import post2 from "../../frontend/assets/post2.avif";
@@ -12,6 +11,7 @@ import post9 from "../../frontend/assets/post9.jpg";
 import post10 from "../../frontend/assets/post10.avif";
 import post11 from "../../frontend/assets/post11.avif";
 import post12 from "../../frontend/assets/post12.jpg";
+import video1 from "../../frontend/assets/video.mp4";
 /**
  * Posts can be added here.
  * You can add default posts of your wish with different attributes
@@ -490,6 +490,35 @@ export const posts = [
         firstName:"Ayush",
         lastName:"Raj",
         comment:"Sounds refreshing...😎😎"
+      }
+    ],
+    username: "shivanisahay22",
+    createdAt: "2022-08-13:15:02+15:30",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "5b76bc41-5fb9-4ebb-962b-7dedb6f9ab4f",
+    content: {
+      message:
+        "Motivation in 1 minute",
+        media:{
+          url:video1,
+          type:"video",
+          name:"video1"
+        }
+    },
+    likes: {
+      likeCount: 56,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id:"a56d3e1b-e79f-4919-9ecc-18f17e7c93ae",
+        username:"ayush-1315",
+        firstName:"Ayush",
+        lastName:"Raj",
+        comment:"🔥🔥🔥"
       }
     ],
     username: "shivanisahay22",

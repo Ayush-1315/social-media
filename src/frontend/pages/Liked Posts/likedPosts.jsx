@@ -7,7 +7,7 @@ import { PostCard } from "../../components/postCard/postCard";
 import { usePost } from "../../context/postContext";
 import { Loader } from "../../components/loader/loader";
 
-export const LikedPostPage = () => {
+export const LikedPostPage = ({onComment}) => {
   document.title = "ChatsterGram | Liked";
   const { isLogin } = useAuth();
   const { postState, deletePost } = usePost();
@@ -64,6 +64,7 @@ export const LikedPostPage = () => {
               key={index}
               onEdit={onEditFun}
               onDelete={onDelete}
+              onComment={onComment}
             />
           ))}</>}
         </>

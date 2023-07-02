@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { getAllUsers, unfollowUserService, updateUserService } from "../services/userService";
 import { useAuth } from "./authContext";
 import { followUserService } from "../services/userService";
+import { notifyToast } from "../../App";
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const { isLogin, setIsLogin, encodedToken } = useAuth();
@@ -46,8 +47,8 @@ export const UserProvider = ({ children }) => {
     try{
 const response=await updateUserService(userData,encodedToken);
 if(response?.status===201){
-  // console.log()
-  setIsLogin({...response?.data?.user})
+  setIsLogin({...response?.data?.user});
+  notifyToast("Profile Updated")
 }
 else throw response
     }

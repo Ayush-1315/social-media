@@ -13,7 +13,7 @@ export const Home = ({onComment}) => {
   document.title = "ChatsterGram | Home";
   const { isLogin } = useAuth();
   const [usersFeed, setUsersFeed] = useState([]);
-  const { postState, deletePost,createPost } = usePost();
+  const { postState, deletePost,createPost,sortPost} = usePost();
   useEffect(() => {
     setUsersFeed([]);
     setUsersFeed((prev) => [
@@ -69,8 +69,15 @@ export const Home = ({onComment}) => {
               />
             </Modal>
           )}
+         
           <div className={home.content}>
             <CreatePost user={isLogin} onSubmit={onSubmitFun} />
+            <div>
+            
+            <button onClick={()=>sortPost("trending")}>Trending</button>
+            <button onClick={()=>sortPost("latest")}>Latest</button>
+            </div>
+            {postState?.sortBy && <h2 style={{fontFamily:"monospace"}}>{`${postState?.sortBy[0]?.toUpperCase(0)}${postState?.sortBy?.slice(1)}`}</h2>}
             {usersFeed.map((post, index) => (
               <PostCard
                 key={index}

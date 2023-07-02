@@ -1,7 +1,7 @@
 .sidebar{
     width: 15vw;
     background: #FDF0D6;
-    min-height: 100vw;
+    min-height: 100vh;
     border: 2px solid;
     position: fixed;
     top: 4rem;
@@ -17,6 +17,8 @@
     padding:0;
     width: fit-content;
 
+    
+
 }
 .options>a{
 text-decoration: none;
@@ -28,6 +30,10 @@ font-weight: 700;
 }
 .options>a:hover{
     letter-spacing: 1.5px;
+}
+.options a i{
+    margin: 1rem;
+    font-weight: 600;
 }
 .options button{
     background-color: #FFC1D1;

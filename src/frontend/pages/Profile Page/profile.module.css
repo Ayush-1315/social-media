@@ -37,6 +37,7 @@ border: 0.4rem solid black;
     font-family: monospace;
     font-size: 3rem;
     font-weight: 900;
+    margin-bottom: 0;
 }
 .userDisplayBio{
     font-family: monospace;
@@ -51,7 +52,13 @@ border: 0.4rem solid black;
     font-family: monospace;
     font-weight: 900;
     font-size:1.2rem;
+    margin-top:0;
     font-weight: 900;
-
-
+}
+.webLink a{
+color:#000;
+text-decoration: none;
+}
+.webLink a:hover{
+    text-decoration: underline;
 }

@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 import profile1 from "../../frontend/assets/profile1.webp";
 import profile2 from "../../frontend/assets/profile2.avif";
@@ -19,7 +18,7 @@ export const users = [
     username: "adarshbalika",
     password: "adarshBalika123",
     bio:"I am an aspiring web developer",
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     profile:profile1,
     bookmarks: [],
     createdAt: formatDate(),
@@ -33,7 +32,7 @@ export const users = [
     password: "ads@2606",
     bio:"I am an aspiring web developer",
     profile:profile2,
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -46,7 +45,7 @@ export const users = [
     profile:profile3,
     password: "rohan123",
     bio:"I am an aspiring web developer",
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     bookmarks: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -58,7 +57,7 @@ export const users = [
     username: "ayush-1315",
     password: "rbga7mt4",
     bio:"I am an aspiring web developer",
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     profile:profile4,
     bookmarks: [],
     createdAt: formatDate(),
@@ -71,7 +70,7 @@ export const users = [
     username: "amishabalika",
     password: "amisha24",
     bio:"I am an aspiring web developer",
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     bookmarks: [],
     profile:profile5,
     createdAt: formatDate(),
@@ -84,7 +83,7 @@ export const users = [
     username: "shivanisahay22",
     password: "nightowl",
     bio:"I am an aspiring web developer",
-    website:"https://chatstergram-develop.netlify.app/",
+    website:"https://ayush-1315.netlify.app/",
     bookmarks: [],
     profile:profile6,
     createdAt: formatDate(),

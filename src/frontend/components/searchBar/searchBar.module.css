@@ -1,0 +1,12 @@
+.searchWrapper {
+    background-color: green;
+    width: fit-content;
+    margin: auto;
+  }
+  .suggestionList {
+    background-color: red;
+    position: absolute;
+    width: 100%;
+    display: none;
+  }
+  

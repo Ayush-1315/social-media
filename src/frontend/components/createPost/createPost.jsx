@@ -30,7 +30,6 @@ export const CreatePost = ({ onSubmit, user, initialData={message:"",media:"",_i
       editPost(initialData?._id,{message:userPost?.message,media:{...userPost?.media}},JSON.parse(localStorage.getItem("user")).encodedToken)
     }
     else if (typeof( onSubmit === "function")){
-      console.log(userPost)
       onSubmit({ content:{message:userPost?.message,media:{...userPost?.media}} })
     };
     setUserPost({
@@ -88,7 +87,6 @@ export const CreatePost = ({ onSubmit, user, initialData={message:"",media:"",_i
                 size: e.target.files[0].size,
                 url: URL.createObjectURL(e.target.files[0]),
               };
-              console.log({isEdit})
               changeHandler("media", media);
             }}
           />

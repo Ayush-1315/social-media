@@ -1,15 +1,14 @@
-import { useEffect } from "react";
+import { useEffect,useState  } from "react";
 
 import { useAuth } from "../../context/authContext";
 import { PostCard } from "../../components/postCard/postCard";
-import { useState } from "react";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
 import { usePost } from "../../context/postContext";
 import { Loader } from "../../components/loader/loader";
-import profilePage from "./profile.module.css";
 import { UserEdit } from "../../components/updateUser/updateUser";
 import { useUser } from "../../context/userContext";
+import profilePage from "./profile.module.css";
 
 export const Profile = ({onComment}) => {
   const { logoffUser, isLogin} = useAuth();
@@ -81,9 +80,12 @@ export const Profile = ({onComment}) => {
                   alt={isLogin?.username}
                   className={profilePage.profileImg}
                 />
-                <h2 className={profilePage.userDisplayName}>{`${isLogin?.firstName} ${isLogin?.lastName}`}</h2>
+               <div>
+               <h2 className={profilePage.userDisplayName}>{`${isLogin?.firstName} ${isLogin?.lastName}`}</h2>
                 <p className={profilePage.userDisplay}>@{isLogin?.username}</p>
+               </div>
                 <p className={profilePage.userDisplayBio}>{isLogin?.bio}</p>
+                <p className={profilePage.webLink}><i className="fa-solid fa-link"></i><a href={isLogin?.website} target="_blank"rel="noreferrer" >{isLogin?.website}</a></p>
                 <div className={profilePage.profileSociety}>
                   <div className={profilePage.status}>
                     <p>{isLogin?.following.length}</p>

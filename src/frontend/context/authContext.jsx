@@ -3,8 +3,9 @@ import { useNavigate } from "react-router";
 
 import { loginAuth, signupAuth } from "../services/authService";
 import { errorToast, notifyToast } from "../../App";
-import { updateUserService } from "../services/userService";
+
 const AuthContext = createContext();
+
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(
@@ -35,7 +36,6 @@ export const AuthProvider = ({ children }) => {
   const createUser = async (userCred) => {
     try {
       const response = await signupAuth(userCred);
-      console.log(response);
       if (response?.status === 201) {
         setIsLogin(response?.data?.createdUser);
         notifyToast("Logged In");
@@ -46,13 +46,14 @@ export const AuthProvider = ({ children }) => {
             encodedToken: response?.data?.encodedToken,
           })
         );
-        console.log(response?.data);
         navigate("/home");
       } else throw response;
     } catch (e) {
       errorToast("Invalid Credentials");
       if (e?.response?.status === 404)
         console.error(e?.response?.data?.errors[0]);
+      if(e?.response?.status===422)
+      errorToast("Username Already Exists")
     }
   };
   const logoffUser = () => {
@@ -61,17 +62,7 @@ export const AuthProvider = ({ children }) => {
     notifyToast("Logged off");
     setIsLogin(false);
   };
-  const updateUser = async (userCred) => {
-    try {
-      const response = await updateUserService(
-        userCred,
-        JSON.parse(localStorage?.getItem("user"))?.encodedToken
-      );
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+ 
   return (
     <AuthContext.Provider
       value={{
@@ -79,7 +70,6 @@ export const AuthProvider = ({ children }) => {
         logUser,
         createUser,
         logoffUser,
-        updateUser,
         setIsLogin,
         encodedToken,
       }}

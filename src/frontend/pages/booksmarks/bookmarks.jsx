@@ -35,7 +35,6 @@ export const BookmarksPage = ({onComment}) => {
   }, [isLogin,postState,encodedToken]);
   const onSubmitFun = (newPost) => {
     createPost(newPost);
-    console.log(newPost);
     setShowModal(false);
   };
   const onEditFun = (data) => {

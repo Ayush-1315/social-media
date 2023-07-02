@@ -25,6 +25,7 @@ import { Modal } from "./frontend/components/Modal/modal";
 import { usePost } from "./frontend/context/postContext";
 import { CreatePost } from "./frontend/components/createPost/createPost";
 import { useAuth } from "./frontend/context/authContext";
+import { FootNav } from "./frontend/components/footNavigation/footNavigation";
 
 export const notifyToast = (message) => {
   toast.success(message, {
@@ -134,7 +135,7 @@ function App() {
               path="/liked"
               element={
                 <PrivateRoute>
-                  <LikedPostPage />
+                  <LikedPostPage onComment={(id) => clickComment(id)} />
                 </PrivateRoute>
               }
             />
@@ -142,7 +143,7 @@ function App() {
               path="/user/:user"
               element={
                 <PrivateRoute>
-                  <UserPage />
+                  <UserPage onComment={(id) => clickComment(id)}/>
                 </PrivateRoute>
               }
             />
@@ -159,6 +160,7 @@ function App() {
         {showComponents && <Asidebar component={<Suggestions />} />}
       </div>
       <ToastContainer />
+    {showComponents &&  <div><FootNav onCreatePost={()=>setShowCreatePost(true)}/></div>}
     </div>
   );
 }

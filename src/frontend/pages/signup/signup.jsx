@@ -1,18 +1,26 @@
-import { useAuth } from "../../context/authContext";
-// import { signupAuth } from "../../services/authService"
+import { useEffect } from "react";
 
-export const SignupPage=()=>{
-    document.title="ChatsterGram | SignUp"
-    const {createUser}=useAuth();
-    const setUser=async()=>{
-         createUser({
-                email:'ayushraj1315',
-                password:'1234',
-                username:'ayush1315'
-            });
-      
+import { SignUpForm } from "../../components/signupForm/signupForm";
+import { useAuth } from "../../context/authContext";
+import signUp from "./signUp.module.css";
+import { useNavigate } from "react-router";
+
+export const SignupPage = () => {
+  document.title = "ChatsterGram | SignUp";
+  const { createUser,isLogin } = useAuth();
+  const submitForm=(data)=>{
+      createUser(data)
     }
-    return <>Signup Here
-    <button onClick={()=>setUser()}>Test</button>
-    </>
-}
+const navigate=useNavigate();
+    useEffect(()=>{
+        if(isLogin)
+        navigate("/home");
+    },[isLogin,navigate])
+  return (
+    <div className={signUp.pageBody}>
+      <div className={signUp.signUpFormContainer}>
+        <SignUpForm onSubmit={submitForm}/>
+      </div>
+    </div>
+  );
+};
