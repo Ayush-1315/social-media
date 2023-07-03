@@ -72,10 +72,10 @@ export const Home = ({onComment}) => {
          
           <div className={home.content}>
             <div className={home.createPost}><CreatePost user={isLogin} onSubmit={onSubmitFun} /></div>
-            <div>
+            <div className={home.filterButtonContainer}>
             
-            <button onClick={()=>sortPost("trending")}>Trending</button>
-            <button onClick={()=>sortPost("latest")}>Latest</button>
+            <button className={home.filterButton} onClick={()=>sortPost("trending")}><i className="fa-solid fa-arrow-trend-up"></i> Trending</button>
+            <button className={home.filterButton} onClick={()=>sortPost("latest")}><i className="fa-solid fa-clock-rotate-left"></i>Latest</button>
             </div>
             {postState?.sortBy && <h2 style={{fontFamily:"monospace"}}>{`${postState?.sortBy[0]?.toUpperCase(0)}${postState?.sortBy?.slice(1)}`}</h2>}
             {usersFeed.map((post, index) => (
