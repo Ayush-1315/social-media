@@ -1,24 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 
 import landing from "./landingPage.module.css";
-import illustration1 from "../../assets/Friends 03.png";
 import { useEffect } from "react";
 import { useAuth } from "../../context/authContext";
-
+import logo from "../../assets/logo.png";
 export const LandingPage = () => {
-  const {isLogin}=useAuth();
-  const navigate=useNavigate();
-  useEffect(()=>{
+  const { isLogin } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
     document.title = "ChatsterGram | Welcome ";
-    if(isLogin)
-    navigate("/home");
-
-  },[isLogin,navigate])
+    if (isLogin) navigate("/home");
+  }, [isLogin, navigate]);
   return (
     <div className={landing.landingBody}>
+      <div className={landing.logoContainer}>
+      <img src={logo} alt="logo" />
+      </div>
       <div className={landing.welcome}>
         <div className={landing.welcomeBrand}>
-          Chatstergram<span className={landing.typer}>|</span>
+          ChatsterGram<span className={landing.typer}>|</span>
         </div>
         <div className={landing.vecContainer}>
           <div className={landing.advertContainer}>

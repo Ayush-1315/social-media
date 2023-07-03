@@ -159,8 +159,8 @@ function App() {
         </div>
         {showComponents && <Asidebar component={<Suggestions />} />}
       </div>
-      <ToastContainer />
     {showComponents &&  <div><FootNav onCreatePost={()=>setShowCreatePost(true)}/></div>}
+      <ToastContainer />
     </div>
   );
 }

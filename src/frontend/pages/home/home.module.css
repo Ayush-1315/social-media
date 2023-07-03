@@ -1,7 +1,19 @@
 .content{
     width:100%;
-    padding:2rem;
+    margin:2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+.createPost{
+    display: none;
+}
+/* Media Queries */
+@media screen and (min-width:768px) {
+    .createPost{
+        display: block;
+    }
+}
+@media screen and  (min-width:1025px){
+   
+  }

@@ -28,12 +28,13 @@ export const SearchBar = ({ searchData }) => {
   };
   return (
     <div className={searchBarCSS.searchWrapper}>
-      <div style={{ position: "relative" }}>
+      <div className={searchBarCSS.container}>
+        <div className={searchBarCSS.searchBar}>
         <input
           type="text"
           name="searchbar"
           id="searchbar"
-          placeholder="search"
+          placeholder="Search user..."
           onChange={changeHandler}
           onFocusCapture={() => setShowSuggestions(true)}
           onBlur={() => {
@@ -44,14 +45,15 @@ export const SearchBar = ({ searchData }) => {
           value={search}
         />
         <span className="material-symbols-outlined">search</span>
+        </div>
         <div
           className={searchBarCSS.suggestionList}
           style={{ display: showSuggestions ? "block" : "none" }}
         >
           {search !== "" && results.length !== 0
             ? results.map((user, index) => (
-                <div key={index} onClick={()=>handleClick(user._id)}>
-                  <span></span>
+                <div key={index} onClick={()=>handleClick(user._id)} className={searchBarCSS.suggestion}>
+                  <span className={searchBarCSS.profile} style={{backgroundImage:`url(${user?.profile})`}}></span>
                   <div>
                     <p>
                       {user.firstName} {user.lastName}

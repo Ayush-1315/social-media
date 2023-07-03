@@ -14,12 +14,16 @@
 .brand{
     text-decoration: none;
     font-size: 3rem;
+    display: flex;
     font-weight: 700;
     font-family: monospace;
     color: #FEC24C;
-    animation:shadow 0.8s ease-in-out forwards;
+    animation: navbar_shadow__aVN6k 0.8s ease-in-out forwards;
     filter: drop-shadow(0.3rem 0.3rem black);
-
+    align-items: center;
+}
+.brand span{
+    display: none;
 }
 @keyframes shadow {
    0% {filter: drop-shadow(0rem 0rem #fff);}
@@ -58,3 +62,21 @@
     z-index: 1;
     border-bottom: 0.3rem solid #FC5E2E;
 }
+.logo{
+
+    width:5rem;
+    height: 3rem;
+}
+
+/* Media Queries */
+@media screen and (min-width:768px) {
+    .brand span{
+        display: inline;
+        font-size: 2rem;
+    }
+}
+@media screen and  (min-width:1025px){
+   .brand span{
+    font-size: 3rem;
+   }
+  }

@@ -71,7 +71,7 @@ export const Home = ({onComment}) => {
           )}
          
           <div className={home.content}>
-            <CreatePost user={isLogin} onSubmit={onSubmitFun} />
+            <div className={home.createPost}><CreatePost user={isLogin} onSubmit={onSubmitFun} /></div>
             <div>
             
             <button onClick={()=>sortPost("trending")}>Trending</button>

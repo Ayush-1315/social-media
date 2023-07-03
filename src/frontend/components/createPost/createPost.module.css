@@ -1,7 +1,7 @@
 .box {
     border: 2px solid black;
     width: fit-content;
-    width: 100%;
+    width: 80vw;
   }
   .header {
     display: flex;
@@ -116,3 +116,4 @@
     border-radius: 50%;
     color: white;
   }
+  
