@@ -1,11 +1,43 @@
-.pageBody{
+.pageBody {
     background-color: #FE7E16;
     height: 100vh;
     width: 100vw;
 }
-.signUpFormContainer{
-background-color: #fff;
-width: 40vw;
-border-right:0.3rem solid black ;
-height: 100%;
+
+.signUpFormContainer {
+    background-color: #fff;
+    width: 40vw;
+    border-right: 0.3rem solid black;
+    height: 100%;
+}
+
+@media screen and (max-width:360px) {
+
+    .pageBody {
+        background-color: #FE7E16;
+        height: 100vh;
+        width: 100vw;
+        animation: shrinkRight 1s forwards ease-in-out 1s;
+    }
+
+    @keyframes shrinkRight {
+        100% {
+            width: 0%;
+        }
+    }
+
+    .signUpFormContainer {
+        background-color: #fff;
+        width: 0vw;
+        border-right: 0.3rem solid black;
+        height: 100%;
+        animation: growRight 1s forwards ease-in-out 1.5s;
+        z-index: -1;
+    }
+
+    @keyframes growRight {
+        100% {
+            width: 100vw;
+        }
+    }
 }

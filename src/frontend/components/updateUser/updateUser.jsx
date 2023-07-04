@@ -34,11 +34,10 @@ export const UserEdit = ({
     e.preventDefault();
     setShowAvatarPick(!showAvatarPick);
   };
-  const avatarSetter=(data)=>{
-    if(data!==null)
-    changeHandler("profile",data);
-    setShowAvatarPick(false)
-  }
+  const avatarSetter = (data) => {
+    if (data !== null) changeHandler("profile", data);
+    setShowAvatarPick(false);
+  };
   return (
     <div className={userEdit?.container}>
       <form onSubmit={submitHandler}>
@@ -57,11 +56,11 @@ export const UserEdit = ({
           ></span>
           {showAvatarPick && (
             <Modal closeModal={() => setShowAvatarPick(false)}>
-                <AvatarPicker onSubmit={avatarSetter}/>
+              <AvatarPicker onSubmit={avatarSetter} />
             </Modal>
           )}
         </div>
-        <button className={userEdit.selectAvatar}onClick={avatarPickerToggler}>
+        <button className={userEdit.selectAvatar} onClick={avatarPickerToggler}>
           Select Avatar
         </button>
         <div className={userEdit?.inputWrapper}>
@@ -85,27 +84,31 @@ export const UserEdit = ({
           </div>
         </div>
         <div>
-          <label htmlFor="bio" className={userEdit.updtuserBio}>Bio</label>
+          <label htmlFor="bio" className={userEdit.updtuserBio}>
+            Bio
+          </label>
           <textarea
             className={userEdit?.textArea}
-           
             onChange={(e) => changeHandler("bio", e.target.value)}
             defaultValue={formData?.bio}
             id="bio"
           />
-          <div className={userEdit.updateUserFooter}>
-          <label htmlFor="website">Website</label>
-          <input
-            type="url"
-            id="website"
-            defaultValue={formData?.website}
-            onChange={(e) => changeHandler("website", e.target.value)}
-          />
-        
-        <input type="submit" value="Update" />
-        <input type="reset" value="Discard" onClick={discardHandler} />
+         
         </div>
-        </div>
+        <div className={userEdit.updateUserFooter}>
+            <label htmlFor="website">Website</label>
+            <input
+              type="url"
+              id="website"
+              defaultValue={formData?.website}
+              onChange={(e) => changeHandler("website", e.target.value)}
+            />
+
+            <div>
+              <input type="submit" value="Update" />
+              <input type="reset" value="Discard" onClick={discardHandler} />
+            </div>
+          </div>
       </form>
     </div>
   );

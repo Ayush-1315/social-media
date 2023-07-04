@@ -44,7 +44,7 @@
         font-weight: 900;
         font-size:1.2rem;
         font-weight: 900;
-        width: 20vw;
+        width: fit-content;
         text-overflow: ellipsis;
     
     }

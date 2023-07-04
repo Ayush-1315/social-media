@@ -85,7 +85,7 @@
 }
 
 .advertContainer {
-    background-color: #ffffffcf;
+    background-color: #ffffffa4;
     height: 50vh;
     width: 30vw;
     display: flex;
@@ -185,7 +185,7 @@
     }
 
     .welcome {
-        height:80%;
+        height:69%;
         width: 80%;
         background-color: #F3BB45;
         border: 0.6rem solid black;

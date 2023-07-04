@@ -1,7 +1,7 @@
 .avatarPick {
     display: inline-block;
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,8 +16,8 @@
   }
   .selectedAvatar{
     display: inline-block;
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,13 +30,30 @@
   }
   .avatarPicker{
     padding: 0.5rem;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
+    width: -moz-fit-content;
     width: fit-content;
     display: grid;
-    grid-template-columns: repeat(3,7vw);
+    gap: 1rem;
+    grid-template-columns: repeat(3,5rem);
   }
-  
+  .avatarPicker>span{
+    width: fit-content;
+    display: inline-block;
+  }
   .avatarPicker input[type="radio"] {
     display: none;
+  }
+  .avatarContainer button{
+    background-color: #F5BC47;
+    font-size: 1rem;
+    border:0.2rem solid;
+    font-weight: 700;
+    font-family: monospace;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    filter: drop-shadow(0.2rem 0.2rem black);
+  }
+  .avatarContainer button:hover{
+    background-color: black;
+    color: #F5BC47;
   }

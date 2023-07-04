@@ -74,6 +74,10 @@ export const Profile = ({onComment}) => {
           )}
           <div className={profilePage.page}>
             <div className={profilePage.content}>
+                <div className={profilePage.profileOptions}>
+              <button onClick={() => setIsUserEdit(true)}><i className="fa-solid fa-pen-to-square"></i> Edit</button>
+              <button onClick={() => logoffUser()}>Log Out <i className="fa-solid fa-right-from-bracket"></i></button>
+              </div>
               <div className={profilePage.profileCard}>
                 <img
                   src={isLogin?.profile}
@@ -101,8 +105,6 @@ export const Profile = ({onComment}) => {
                   </div>
                 </div>
               </div>
-              <button onClick={() => setIsUserEdit(true)}>Edit</button>
-              <button onClick={() => logoffUser()}>Log Out</button>
               <div className={profilePage.postContainer}>
                 <h2>Your Posts</h2>
                 {postState.userPosts?.length === 0 ? (

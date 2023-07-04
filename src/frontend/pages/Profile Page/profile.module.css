@@ -44,9 +44,37 @@ border: 0.4rem solid black;
     font-weight: 900;
     font-size:1.2rem;
     font-weight: 900;
-    width: 20vw;
+    width: fit-content;
     text-overflow: ellipsis;
 
+}
+.profileOptions{
+    margin:1rem;
+}
+.profileOptions button{
+    margin: 0 1rem;
+    padding:0.4rem 0.6rem;
+    font-weight: 800;
+    font-family: monospace;
+    font-size: 1rem;
+    border:0.2rem solid;
+    filter:drop-shadow(0.2rem 0.2rem black);
+    cursor: pointer;
+}
+.profileOptions button:first-child{
+    background-color: #FE7E16;
+}
+.profileOptions button:first-child:hover{
+    color: #FE7E16;
+    background-color: black;
+}
+.profileOptions button:nth-child(2){
+    color:#FE7E16;
+    background-color: black;
+}
+.profileOptions button:nth-child(2):hover{
+    background-color:#FE7E16;
+    color: black;
 }
 .userDisplay{
     font-family: monospace;

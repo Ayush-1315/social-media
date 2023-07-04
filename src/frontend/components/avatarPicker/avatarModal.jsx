@@ -12,7 +12,7 @@ export const AvatarPicker = ({ onSubmit }) => {
     }
   }
   return (
-    <div>
+    <div className={avatarCSS.avatarContainer}>
       <div className={avatarCSS?.avatarPicker}>
         {avatars.map((avatar, index) => (
           <span key={index}>
