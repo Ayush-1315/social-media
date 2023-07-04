@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import {emojis} from "../createPost/createPostEmojis";
+import commentCSS from "./commentBox.module.css";
 export const CommentBox = ({onSubmit}) => {
   const [comment, setComment] = useState("");
-  const [showCommentBox, setCommentBox] = useState(false);
+  const [showEmojiBox, setShowEmojiBox] = useState(false);
   const changeHangler = (type, value) => {
     setComment((prev) => (type === "emoji" ? prev + value : value));
   };
@@ -12,8 +13,9 @@ export const CommentBox = ({onSubmit}) => {
       comment!==""?onSubmit(comment):alert('Enter comment');
     }
   }
+  const emojiBoxToggle=()=>setShowEmojiBox(!showEmojiBox);
   return (
-    <div>
+    <div className={commentCSS.commentBox}>
       <h2>Comment</h2>
       <textarea
         name=""
@@ -23,11 +25,12 @@ export const CommentBox = ({onSubmit}) => {
         placeholder="Add comment"
         onChange={(e) => changeHangler("comment", e.target.value)}
         value={comment}
+        className={commentCSS.textArea}
       ></textarea>
-      <span>
+      <span onClick={emojiBoxToggle} className=" emoji">
         <span className="material-symbols-outlined">mood</span>
       </span>
-      <div>
+      {showEmojiBox && <div className={commentCSS.emojiBox}>
         {emojis.map((emojiData, index) => (
           <span
             key={index}
@@ -36,7 +39,7 @@ export const CommentBox = ({onSubmit}) => {
             {emojiData?.emoji}
           </span>
         ))}
-      </div>
+      </div>}
       <button onClick={submitHandler}>Comment</button>
     </div>
   );

@@ -14,6 +14,11 @@
     resize: none;
     outline: none;
     border: none;
+    background-color: #95C754;
+    font-weight: 900;
+    font-family: monospace;
+    border-radius: 0;
+    outline:0.2rem solid;
   }
   .profilePic {
     height: 5rem;
@@ -97,13 +102,16 @@
     padding: 0.5rem 1rem;
     font-weight: bold;
     font-size: 1rem;
-    background-color: blue;
-    color: white;
-    cursor: pointer;
+    background-color: #F5BC47;
+    color: black;
+    border: 0.2rem solid black;
   }
   .postBtn:disabled {
-    background-color: red;
-    color: whitesmoke;
+    color: #F5BC47;
+    cursor: pointer;
+    border:0.2rem solid #F5BC47;
+    background-color: black;
+
   }
   .custom {
     cursor: pointer;

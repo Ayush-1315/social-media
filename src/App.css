@@ -41,6 +41,12 @@ left: 0;}
   color:cyan;
   /* font-size: 1rem; */
 }
+.emoji{
+  text-align: left;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  cursor: pointer;
+}
 /* .content{
   flex-direction: column;
     align-items: center;
