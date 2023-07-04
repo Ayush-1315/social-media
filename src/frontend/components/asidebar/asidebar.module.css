@@ -13,11 +13,12 @@
 
 /* Media Queries */
 @media screen and (min-width:768px) {
-    .asidebar{
-        /* display: flex; */
-    }
+    
 }
 @media screen and  (min-width:1025px){
+    .asidebar{
+        display: flex;
+    }
    .brand span{
     font-size: 3rem;
    }

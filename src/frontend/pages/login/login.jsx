@@ -16,7 +16,7 @@ export const LoginPage = () => {
       <div className="loginContainer">
         <div className="loginLeft"></div>
         <div className="loginRight">
-          <span>Login Here!</span>
+          <span>ChatsterGram</span>
           <LoginForm signupRoute="/signup" onFinish={(data) => logUser(data)} />
           <button
             onClick={() =>

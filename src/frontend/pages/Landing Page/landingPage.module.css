@@ -111,7 +111,12 @@
 
 
 }
-
+.advertContainer>ul>span{
+    font-size: 1rem;
+}
+.advertContainer>ul>a{
+    font-weight: 700;
+}
 @keyframes enlarge {
     100% {
         height: 70vh;
@@ -510,6 +515,7 @@
         font-size: 2.5rem;
         font-weight: 800;
     }
+   
     .beginChat {
         
         font-size: 1rem;

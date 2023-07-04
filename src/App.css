@@ -26,6 +26,7 @@ align-items: center;
 display: flex;
 width: 100%;
 position: relative;
+margin-bottom: 4rem ;
 left: 0;}
 
 .welcomeBrand{
@@ -48,3 +49,17 @@ left: 0;}
     position: relative;
     left: 20vw;
 } */
+
+
+/* Media Queries */
+@media screen and (min-width:768px) {
+ }
+@media screen and  (min-width:1025px){
+ .content{
+  left:20vw;
+  width: 55vw;
+ }
+ .footer{
+  display: none;
+ }
+}

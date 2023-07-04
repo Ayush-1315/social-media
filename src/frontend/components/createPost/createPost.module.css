@@ -117,3 +117,11 @@
     color: white;
   }
   
+/* Media Queries */
+@media screen and (min-width:768px) {
+}
+@media screen and  (min-width:1025px){
+.box{
+  width:100%;
+}
+}

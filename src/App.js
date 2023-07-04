@@ -85,7 +85,7 @@ function App() {
       {showComponents && <Navbar />}
       <div className="page">
         {showComponents && <Sidebar onCreatePost={()=>setShowCreatePost(true)}/>}
-        <div className="content">
+        <div className={showComponents && "content"}>
           {showCommentBox && (
             <Modal closeModal={()=>setShowCommentBox(false)}>
               <CommentBox onSubmit={commentSubmit}/>
@@ -159,7 +159,7 @@ function App() {
         </div>
         {showComponents && <Asidebar component={<Suggestions />} />}
       </div>
-    {showComponents &&  <div><FootNav onCreatePost={()=>setShowCreatePost(true)}/></div>}
+    {showComponents &&  <div className="footer"><FootNav onCreatePost={()=>setShowCreatePost(true)}/></div>}
       <ToastContainer />
     </div>
   );

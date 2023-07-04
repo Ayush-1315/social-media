@@ -1,6 +1,5 @@
 .content{
     width:100%;
-    margin:4rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,7 +44,11 @@
     }
 }
 @media (min-width:521px)  {
+}
+@media screen and  (min-width:1025px){
+    
     .createPost{
         display: block;
+        width: 100%;
     }
-}
+  }

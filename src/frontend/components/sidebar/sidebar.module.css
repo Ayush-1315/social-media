@@ -63,4 +63,7 @@ font-weight: 700;
    .brand span{
     font-size: 3rem;
    }
+   .sidebar{
+    display: flex;
+   }
   }
