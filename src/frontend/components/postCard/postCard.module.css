@@ -165,7 +165,7 @@ font-weight: 700;
 }
 @media screen and  (min-width:1025px){
    .card{
-    width: 100%;
+    width: 80%;
    }
     .brand span{
     font-size: 3rem;
