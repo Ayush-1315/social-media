@@ -157,7 +157,7 @@ export const SignUpForm = ({ onSubmit }) => {
           <p className={signupFormCSS.warnings}>Password doesnot match</p>
         )}
         <input type="checkbox" id="agree" defaultChecked="true" />
-        <label htmlFor="agree" className="agreeLabel">
+        <label htmlFor="agree" className={signupFormCSS.agreeLabel}>
           {" "}
           Agree terms and conditions
         </label>

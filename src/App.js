@@ -85,7 +85,7 @@ function App() {
       {showComponents && <Navbar />}
       <div className="page">
         {showComponents && <Sidebar onCreatePost={()=>setShowCreatePost(true)}/>}
-        <div className={showComponents && "content"}>
+        <div className={showComponents? "content":""}>
           {showCommentBox && (
             <Modal closeModal={()=>setShowCommentBox(false)}>
               <CommentBox onSubmit={commentSubmit}/>

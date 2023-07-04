@@ -1,11 +1,13 @@
 .formBody {
     background-color: #fce4ac;
-    width: 100%;
-    height: 100%;
-    /* margin: auto; */
-    padding: 1rem;
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     border-right:0.3rem solid black ;
-  }
+ }
   .formBody .labels {
     display: block;
     margin: 1rem;
@@ -21,8 +23,7 @@
     filter: drop-shadow(0.4rem 0.4rem black);
     padding: 0.5rem;
     font-size: 1.5rem;
-    width: fit-content;
-    width: 50%;
+    width: 70%;
   }
   .inputContainer {
     display: flex;
@@ -30,7 +31,7 @@
     margin: 1rem auto;
     border: 0.3rem solid;
     filter: drop-shadow(0.4rem 0.4rem black);
-    width: 51%;
+    width: 73%;
   }
   .inputContainer button {
     border: none;
@@ -69,5 +70,82 @@
   }
   label {
     font-size: 1.5rem;
+  }
+  @keyframes growRight {
+    100%{width: 100%;}
+  }
+  @keyframes showInput {
+    100%{opacity: 1.0;}
+  }
+  /* Media Queries start here */
+  @media screen and (max-width:460px) {
+   
+  .agreeLabel{
+   font-size: 1rem; 
+  } 
+
+  .input {
+
+    font-size: 1.5rem;
+    width: 70%;
+    animation: showInput 1s forwards 1.5s;
+    opacity: 0;
+  }
+  .inputContainer {
+   
+    opacity: 0;
+    width: 73%;
+    animation: showInput 1s forwards 1.5s;
+  }
+  .formBody{
+    animation: growRight 1.5s forwards ease-in-out 1s;
+  }
+
+
+  }
+
+  @media (min-width:461px) and (max-width:768px){
+    
+    .agreeLabel{
+
+      font-size: 1.1rem;
+    }
+    .input {
+     
+    opacity: 0;
+    width: 73%;
+    animation: showInput 1s forwards 1.5s;
+    }
+    .inputContainer{
+      width: 70%;
+    }
+    .formBody{
+      animation: growRight 1.5s forwards ease-in-out 1s;
+    }
+    @keyframes growRight {
+      100%{width: 100%}
+    }
+
+  }
+
+  @media (min-width:769px) and (max-width:1080px) {
+    
+
+    .agreeLabel{
+    font-size: 1.1rem;
+    }
+    .input {
+      display: block;
+      margin: 1rem auto;
+      border: 0.3rem solid;
+      filter: drop-shadow(0.4rem 0.4rem black);
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      width: 70%;
+    }
+    .inputContainer{
+      width: 70%;
+    }
+
   }
   
