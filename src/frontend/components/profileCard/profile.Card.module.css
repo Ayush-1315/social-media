@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: space-evenly;
     border: 0.4rem solid black;
+    width: 90%;
+    margin-top: 1rem;
     }
     .postContainer{
         display: flex;
@@ -72,4 +74,9 @@
         font-family: monospace;
         font-weight: 700;
         font-size: 1.5rem;
+    }
+    @media screen and (min-width:1025px){
+        .profileCard{
+            width:70%
+        }
     }

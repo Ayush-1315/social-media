@@ -7,6 +7,8 @@ import { Loader } from "../../components/loader/loader";
 import { PostCard } from "../../components/postCard/postCard";
 import { Modal } from "../../components/Modal/modal";
 import { CreatePost } from "../../components/createPost/createPost";
+import bookmarksCSS from  "./bookmarks.module.css";
+
 export const BookmarksPage = ({onComment}) => {
   const { isLogin, encodedToken } = useAuth();
   const { postState,deletePost,createPost} = usePost();
@@ -64,7 +66,7 @@ export const BookmarksPage = ({onComment}) => {
               />
             </Modal>
           )}
-          <div>
+          <div className={bookmarksCSS.postContainer}>
           <h2>Bookmarks</h2>
         {bookmarks.map((post,index)=><PostCard post={post} key={index} onEdit={onEditFun} onDelete={onDelete} onComment={onComment}/>)}
           </div>
