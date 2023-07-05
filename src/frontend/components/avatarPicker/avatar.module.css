@@ -57,3 +57,24 @@
     background-color: black;
     color: #F5BC47;
   }
+  .upload{
+    background-color: grey;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem !important;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #F5BC47;
+    outline: 0.2rem solid;
+  }
+  .upload span{
+    font-size: 3rem;
+
+  }
+  .avatarContainer input[type="file"]{
+    display: none;
+  }

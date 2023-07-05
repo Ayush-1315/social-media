@@ -87,6 +87,7 @@ export const CreatePost = ({ onSubmit, user, initialData={message:"",media:"",_i
                 size: e.target.files[0].size,
                 url: URL.createObjectURL(e.target.files[0]),
               };
+              console.log(media.url)
               changeHandler("media", media);
             }}
           />
