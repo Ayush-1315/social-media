@@ -9,6 +9,7 @@ import { usePost } from "../../context/postContext";
 import { useUser } from "../../context/userContext";
 import { Loader } from "../../components/loader/loader";
 import postPageCSS from "./postPage.module.css";
+import { ErrorState } from "../../components/errorState/errorState";
 
 export const PostPage = ({ onComment }) => {
   document.title = "ChatsterGram | Post";
@@ -69,7 +70,7 @@ export const PostPage = ({ onComment }) => {
             </Modal>
           )}
           <div className={postPageCSS?.mainContainer}>
-            {currentPost && (
+            {currentPost ? (
               <>
                 <PostCard
                   post={currentPost}
@@ -117,7 +118,7 @@ export const PostPage = ({ onComment }) => {
                   </div>
                 </div>
               </>
-            )}
+            ):<ErrorState message="This post is not available."/>}
           </div>
         </>
       )}
