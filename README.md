@@ -2,7 +2,10 @@
 ---
 [ChatsterGram](https://chatstergram.netlify.app "ChatsterGram") - A social media app to explore, connect and share you ideas.
 
-![Video](https://www.loom.com/share/86e82a52df664da6bc00ce4a9c1b1b72?sid=732b24a6-df4c-459e-8bb3-3d10cf519090)
+
+https://github.com/Ayush-1315/social-media/assets/99101790/844de4ba-70e8-4b96-b071-d1f6d8e61b9b
+
+
 
 <br>
 
