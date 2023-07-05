@@ -46,6 +46,7 @@
     transition: height 0.3s;
     padding: 0.5rem;
     border-radius: 10px;
+    z-index: 5;
   }
   .footer > div {
     display: flex;
