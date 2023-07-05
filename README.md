@@ -1,6 +1,6 @@
 # ChatsterGram
 ---
-[ChatsterGram](https://chatstergram.netlify.app "ChatsterGram") - A social media app to explore, connect and share you ideas.
+[ChatsterGram](https://chatstergram.netlify.app "ChatsterGram") - A social media app to explore, connect and share your ideas.
 
 
 https://github.com/Ayush-1315/social-media/assets/99101790/844de4ba-70e8-4b96-b071-d1f6d8e61b9b
