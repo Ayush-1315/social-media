@@ -54,7 +54,7 @@ https://github.com/Ayush-1315/social-media/assets/99101790/844de4ba-70e8-4b96-b0
 - Loaders
 - Responsive
 
-## Teach Stack
+## Tech Stack
 ---
 - React JS
 - React Router 6
