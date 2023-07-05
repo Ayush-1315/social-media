@@ -23,7 +23,7 @@ export const LoginPage = () => {
               logUser({ username: "adarshbalika", password: "adarshBalika123" })
             }
           >
-            Test Credentials
+            Guest User
           </button>
           <Link to="/signup">Create New Account</Link>
         </div>

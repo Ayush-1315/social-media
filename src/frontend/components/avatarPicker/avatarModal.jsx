@@ -48,6 +48,7 @@ export const AvatarPicker = ({ onSubmit }) => {
             uploadHandler(URL.createObjectURL(e.target.files[0]))
           }
           id="fileUpload"
+          accept="image/png, image/jpeg"
         />
         <label htmlFor="fileUpload">
           <span
