@@ -37,7 +37,6 @@ export const ExplorerPage = ({onComment}) => {
         </Modal>
       )}
       <div>
-        <h1> Explore the world !</h1>
         <div>{postState.posts.map((post,index)=><PostCard post={post} key={index} onEdit={onEditFun}
               onDelete={onDelete} onComment={onComment}/>)}</div>
       </div>

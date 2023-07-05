@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { getAllUsers, unfollowUserService, updateUserService } from "../services/userService";
 import { useAuth } from "./authContext";
 import { followUserService } from "../services/userService";
-import { notifyToast } from "../../App";
+import { errorToast, notifyToast } from "../../App";
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const { isLogin, setIsLogin, encodedToken } = useAuth();
@@ -28,7 +28,10 @@ export const UserProvider = ({ children }) => {
         setIsLogin(response?.data?.user);
       } else throw response;
     } catch (e) {
-      console.error(e);
+      console.log(e)
+      if(e?.response.status===404){
+        errorToast("The username you enetered is not Registered.")
+      }
     }
   };
 

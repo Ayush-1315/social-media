@@ -1,25 +1,29 @@
 .asidebar{
     background-color: #FDF0D6;
-    width: 20vw;
+    width: fit-content;
     position: fixed;
     right: 0;
     min-height: 100vh;
     display: flex;
     padding: 1rem 0;
-    justify-content: center;
+    /* justify-content: center; */
     border-left: 0.3rem solid #FC5E2E;
     display: none;
 }
 
 /* Media Queries */
-@media screen and (min-width:768px) {
-    
-}
 @media screen and  (min-width:1025px){
     .asidebar{
         display: flex;
+        width: 20vw;
     }
    .brand span{
     font-size: 3rem;
    }
   }
+  @media screen and  (min-width:1200px){
+   .brand span{
+    font-size: 3rem;
+   }
+  }
+  

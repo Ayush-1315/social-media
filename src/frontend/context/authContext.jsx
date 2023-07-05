@@ -49,7 +49,6 @@ export const AuthProvider = ({ children }) => {
         navigate("/home");
       } else throw response;
     } catch (e) {
-      errorToast("Invalid Credentials");
       if (e?.response?.status === 404)
         console.error(e?.response?.data?.errors[0]);
       if(e?.response?.status===422)

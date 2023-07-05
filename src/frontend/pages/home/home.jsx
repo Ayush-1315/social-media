@@ -77,6 +77,7 @@ export const Home = ({onComment}) => {
             <button className={home.filterButton} onClick={()=>sortPost("trending")}><i className="fa-solid fa-arrow-trend-up"></i> Trending</button>
             <button className={home.filterButton} onClick={()=>sortPost("latest")}><i className="fa-solid fa-clock-rotate-left"></i>Latest</button>
             </div>
+            {usersFeed.length===0 && <h2>No Posts to show</h2>}
             {postState?.sortBy && <h2 style={{fontFamily:"monospace"}}>{`${postState?.sortBy[0]?.toUpperCase(0)}${postState?.sortBy?.slice(1)}`}</h2>}
             {usersFeed.map((post, index) => (
               <PostCard

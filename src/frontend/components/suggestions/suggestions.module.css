@@ -2,7 +2,7 @@
     position: relative;
     height: fit-content;
     width: fit-content;
-    width: 80%;
+    width: 90%;
 
 }
 .salutation{
@@ -10,19 +10,33 @@
     filter: drop-shadow(-0.2rem 0.2rem #FEC24C);
     font-weight: 800;
     font-family: monospace;
-    
+}
+.suggestionBox p{
+    margin: 0;
+    margin-bottom: 0.5rem;
 }
 .suggestionBox li{
     list-style-type: none;
     background-color: #FED1B3;
+    filter: drop-shadow(0px 0px black);
+    margin: 1rem 0 0 0.5rem;
+    border: 0.1rem solid black;
+    width: 70%;
+    /* padding: 1rem 0.3rem; */
+}
+.suggestionBox li>div:first-child{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin: 1rem 0 0 0.5rem;
-    padding: 1rem 0.3rem;
-    border: 0.1rem solid black;
-    filter: drop-shadow(0px 0px black);
+    justify-content: space-evenly;
+    gap: 0.5rem;
+    align-items: center;
+    width: 90%;
     transition: all 0.6s;
+    padding-top: 5px;
+}
+.suggestionBox li button{
+    width: 90%;
+    margin: 0.4rem auto;
 }
 .profile{
     display: inline-block;
@@ -32,6 +46,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* margin:0.5rem; */
 }
 .suggestionBox li:hover{
     filter: drop-shadow(0.2rem 0.2rem black);
@@ -56,3 +71,21 @@
 .suggestionBox button:hover{
     content: "+";
 }
+@media screen and  (min-width:1024px){
+    .suggestionBox{
+        width: 100%;
+        margin: 0 0.5rem;
+    }
+    .suggestionBox li{
+        width: 90%;
+    }
+  }
+@media screen and  (min-width:1200px){
+    .suggestionBox{
+        width: 100%;
+        margin: 0 0.5rem;
+    }
+    .suggestionBox li{
+        width: 80%;
+    }
+  }

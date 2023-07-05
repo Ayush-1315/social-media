@@ -18,13 +18,15 @@ export const Suggestions = () => {
             const { firstName, lastName, username, _id, profile } = user;
             return (
               <li key={index}>
-                <span
-                  className={suggestionCSS.profile}
-                  style={{ backgroundImage: `url(${profile})` }}
-                ></span>
-                <div onClick={() => clickHandler(_id)}>
-                  <p>{`${firstName} ${lastName}`}</p>
-                  <p>@{username}</p>
+                <div>
+                  <span
+                    className={suggestionCSS.profile}
+                    style={{ backgroundImage: `url(${profile})` }}
+                  ></span>
+                  <div onClick={() => clickHandler(_id)}>
+                    <p>{`${firstName} ${lastName}`}</p>
+                    <p>@{username}</p>
+                  </div>
                 </div>
                 {isLogin?.following?.reduce(
                   (isFollowing, { username: storedFollowing }) =>
@@ -35,6 +37,7 @@ export const Suggestions = () => {
                 ) : (
                   <button onClick={() => followUser(_id)}>Follow +</button>
                 )}
+          
               </li>
             );
           })}
