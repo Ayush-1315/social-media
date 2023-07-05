@@ -1,0 +1,31 @@
+.modalWrapper{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(189, 189, 189, 0.8);
+    z-index: 5;
+}
+.modalContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fade 0.6s ease-in-out forwards;
+    background-color: #FE7E16;
+    padding: 0.5rem;
+    /* border-radius: 10px; */
+    border: 0.3rem solid;
+    filter: drop-shadow(0.4rem 0.4rem black);
+}
+@keyframes fade {
+    0%{opacity: 0;}
+    100%{opacity:1.0;}
+}

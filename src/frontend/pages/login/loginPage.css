@@ -1,0 +1,135 @@
+.loginContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    /* place-content: center; */
+    overflow: hidden;
+
+}
+.loginRight{
+    height: 100vh;
+    width: 44vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left:0.3rem solid black ;
+    background-color:#FCE4AC;
+}
+/* @keyframes leftGrow {
+    100%{width: 44vw;}
+} */
+.loginRight span{
+    font-size: 3rem;
+    font-family: monospace;
+    font-weight: 800;
+}
+.loginRight input{
+    height: 6vh;
+    width: 20vw;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: monospace;
+    border: 0.3rem solid black;
+    filter: drop-shadow(0.4rem 0.4rem black);
+    text-align: center;
+    margin:1rem;
+    display: block;
+}
+.loginRight button{
+    height: 6vh;
+    width: 20vw;
+    background-color: #FE7E16;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: monospace;
+    border: 0.3rem solid black;
+    filter: drop-shadow(0.4rem 0.4rem black);
+    cursor: pointer;
+    margin: 1rem;
+}
+.loginLeft{
+    height: 100vh;
+    width: 100vw;
+    /* display: grid;
+    grid-template-columns: repeat(1,30vw); */
+    
+    background-color: #FE7E16;
+}
+
+@media screen and (max-width:768px) {
+    
+
+    .loginRight{
+        height: 100vh;
+        width: 0vw;
+        border-left:0.3rem solid black ;
+        background-color:transparent;
+        animation:leftGrow 1s forwards ease-in-out 1.3s;
+    }
+    @keyframes leftGrow {
+        100%{width: 100vw;
+            background-color:#FCE4AC ;
+        }
+    }
+    .loginRight span{
+        font-size: 2.5rem;
+        font-family: monospace;
+        font-weight: 800;
+        opacity:0;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+    }
+    @keyframes fadeIn {
+        100%{opacity: 1.0;}
+    }
+    .loginRight input{
+        height: 6vh;
+        width: 50vw;
+        font-size: 1.2rem;
+        margin:1rem auto;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 1.5s;
+    }
+    .loginRight button{
+    
+        width: 50vw;
+        font-size: 1rem;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 2s;
+        margin: 1rem;
+    }
+    .loginLeft{
+    
+        width: 100vw;
+ 
+        animation: shrink 1s forwards ease-in-out;
+    }
+    @keyframes shrink {
+        100%{width: 0%;}
+    }
+    .loginRight a{
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 2s; 
+    }
+    
+}
+@media (min-width:769px) and (max-width:1080px) {
+    .loginRight{
+    
+        width: 55vw;
+    }
+    .loginRight input{
+        width: 80%;
+        font-size: 1.2rem;
+        margin:1rem auto;
+        
+    }
+    .loginRight button{
+    
+        width: 60%;
+        font-size: 1rem;
+        
+        margin: 1rem;
+    }
+    
+}

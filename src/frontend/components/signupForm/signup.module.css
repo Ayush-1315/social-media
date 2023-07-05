@@ -1,0 +1,151 @@
+.formBody {
+    background-color: #fce4ac;
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-right:0.3rem solid black ;
+ }
+  .formBody .labels {
+    display: block;
+    margin: 1rem;
+    cursor: pointer;
+  }
+  .formBody h1{
+    margin: 0;
+  }
+  .input {
+    display: block;
+    margin: 1rem auto;
+    border: 0.3rem solid;
+    filter: drop-shadow(0.4rem 0.4rem black);
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 70%;
+  }
+  .inputContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto;
+    border: 0.3rem solid;
+    filter: drop-shadow(0.4rem 0.4rem black);
+    width: 73%;
+  }
+  .inputContainer button {
+    border: none;
+    background-color: white;
+  }
+  .inputContainer input {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none;
+    width: 100%;
+  }
+  input {
+    outline: none;
+    font-weight: 700;
+  }
+  .formBody input[type="submit"] {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: black;
+    border: none;
+    color: #fe7e16;
+    cursor: pointer;
+    filter: drop-shadow(0.4rem 0.4rem #fe7e16);
+  }
+  .formBody input[type="submit"]:hover {
+    background-color: #fe7e16;
+    color: black;
+    filter: drop-shadow(0.4rem 0.4rem black);
+  }
+  .warnings {
+    color: red;
+    font-size: 1.5rem;
+  }
+  label {
+    font-size: 1.5rem;
+  }
+  @keyframes growRight {
+    100%{width: 100%;}
+  }
+  @keyframes showInput {
+    100%{opacity: 1.0;}
+  }
+  /* Media Queries start here */
+  @media screen and (max-width:460px) {
+   
+  .agreeLabel{
+   font-size: 1rem; 
+  } 
+
+  .input {
+
+    font-size: 1.5rem;
+    width: 70%;
+    animation: showInput 1s forwards 1.5s;
+    opacity: 0;
+  }
+  .inputContainer {
+   
+    opacity: 0;
+    width: 73%;
+    animation: showInput 1s forwards 1.5s;
+  }
+  .formBody{
+    animation: growRight 1.5s forwards ease-in-out 1s;
+  }
+
+
+  }
+
+  @media (min-width:461px) and (max-width:768px){
+    
+    .agreeLabel{
+
+      font-size: 1.1rem;
+    }
+    .input {
+     
+    opacity: 0;
+    width: 73%;
+    animation: showInput 1s forwards 1.5s;
+    }
+    .inputContainer{
+      width: 70%;
+    }
+    .formBody{
+      animation: growRight 1.5s forwards ease-in-out 1s;
+    }
+    @keyframes growRight {
+      100%{width: 100%}
+    }
+
+  }
+
+  @media (min-width:769px) and (max-width:1080px) {
+    
+
+    .agreeLabel{
+    font-size: 1.1rem;
+    }
+    .input {
+      display: block;
+      margin: 1rem auto;
+      border: 0.3rem solid;
+      filter: drop-shadow(0.4rem 0.4rem black);
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      width: 70%;
+    }
+    .inputContainer{
+      width: 70%;
+    }
+
+  }
+  

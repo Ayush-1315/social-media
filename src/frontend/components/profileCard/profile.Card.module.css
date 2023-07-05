@@ -1,0 +1,75 @@
+.profileCard{
+    background-color: #FE7E16;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 0.4rem solid black;
+    }
+    .postContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+    .profileImg{
+        height: 9rem;
+        border-radius: 50%;
+        border: 5px solid;
+        width: 9rem;
+    }
+    .profileSociety{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #000;
+        color: #FE7E16;
+        height: 8vh;
+        font-size: 1.3rem;
+        font-family: monospace;
+        font-weight: 800;
+    }
+    .profileSociety p{
+        margin: 1px;
+    }
+    .userDisplayName{
+        font-family: monospace;
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 0;
+    }
+    .userDisplayBio{
+        font-family: monospace;
+        font-weight: 900;
+        font-size:1.2rem;
+        font-weight: 900;
+        width: fit-content;
+        text-overflow: ellipsis;
+    
+    }
+    .userDisplay{
+        font-family: monospace;
+        font-weight: 900;
+        font-size:1.2rem;
+        margin-top:0;
+        font-weight: 900;
+    }
+    .webLink a{
+    color:#000;
+    text-decoration: none;
+    }
+    .webLink a:hover{
+        text-decoration: underline;
+    }
+    .followBtn{
+        background-color: black;
+        border:none;
+        margin:1rem;
+        padding:1rem;
+        cursor: pointer;
+        color:#FE7E16;
+        font-family: monospace;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }

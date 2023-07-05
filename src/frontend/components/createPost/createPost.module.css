@@ -1,0 +1,135 @@
+.box {
+    border: 2px solid black;
+    width: fit-content;
+    width: 80vw;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 2px solid;
+  }
+  .textBox {
+    width: 80%;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: #95C754;
+    font-weight: 900;
+    font-family: monospace;
+    border-radius: 0;
+    outline:0.2rem solid;
+  }
+  .profilePic {
+    height: 5rem;
+    width: 5rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin:0.5rem;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+    align-self: center;
+  }
+  .emojiBox {
+    background-color: #2d2d3a;
+    min-width: fit-content;
+    min-height: fit-content;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    display: flex;
+    transition: height 0.3s;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  .footer > div {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .emojiBox > div:first-child {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 3;
+    margin: 0 0.2rem;
+  }
+  .emojiBox button {
+    background-color: grey;
+    margin: 2px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+  }
+  .box input[type="file"] {
+    display: none;
+  }
+  .fileChip {
+    background-color: red;
+    padding: 0.2rem 0.4rem;
+    border-radius: 20px;
+    color: whitesmoke;
+    cursor: pointer;
+    max-width: 8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  .fileChip > button {
+    background-color: transparent;
+    padding: 0;
+    margin-left: 0.5rem;
+    border: none;
+  }
+  .fileChip > button:hover {
+    color: white;
+    cursor: pointer;
+  }
+  .fileChip > span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    display: inline-block;
+  }
+  .postBtn {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #F5BC47;
+    color: black;
+    border: 0.2rem solid black;
+  }
+  .postBtn:disabled {
+    color: #F5BC47;
+    cursor: pointer;
+    border:0.2rem solid #F5BC47;
+    background-color: black;
+
+  }
+  .custom {
+    cursor: pointer;
+  }
+  .profileText{
+    font-size: 3rem;
+    background-color: grey;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50%;
+    color: white;
+  }
+  
+/* Media Queries */
+@media screen and (min-width:768px) {
+}
+@media screen and  (min-width:1025px){
+.box{
+  width:100%;
+}
+}

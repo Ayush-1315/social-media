@@ -1,0 +1,76 @@
+.sidebar{
+    width: fit-content;
+    background: #FDF0D6;
+   height: 92vh;
+    border: 2px solid;
+    position: fixed;
+    top: 4rem;
+    border-right: 0.3rem solid #FC5E2E;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    justify-content: space-between;
+}
+.optionContainer{
+    list-style: none;
+    text-align: left;
+    padding:0;
+    width: fit-content;
+}
+.options>a{
+text-decoration: none;
+color: black;
+font-size: 1.3rem;
+font-family: monospace;
+transition: all 0.4s;
+font-weight: 700;
+}
+/* .options>a:hover{
+    letter-spacing: 1.5px;
+} */
+.options a i{
+    margin: 0.5rem;
+    font-weight: 600;
+}
+.options button{
+    background-color: #FFC1D1;
+    width: 10vw;
+    padding: 5px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    filter: drop-shadow(0.3rem 0.3rem black);
+    transition: all 0.1s;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    margin: 3rem 1rem;
+}
+.options button:hover{
+    filter: drop-shadow(0.4rem 0.4rem black);
+}
+.optionsHighlight{
+    background-color: #FE7C19;
+    border:0.2rem solid;
+}
+/* Media Queries */
+@media screen and (min-width:768px) {
+    .brand span{
+        display: inline;
+        font-size: 2rem;
+    }
+}
+@media screen and  (min-width:1025px){
+   .brand span{
+    font-size: 3rem;
+   }
+   .sidebar{
+    display: flex;
+   }
+  }
+  @media screen and  (min-width:1025px){
+    .sidebar{
+        height: 94vh;
+    }
+   }

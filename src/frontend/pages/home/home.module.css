@@ -1,0 +1,55 @@
+.content{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.createPost{
+    display: none;
+}
+.filterButtonContainer{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.filterButton{
+    background-color: #FFC5D1;
+    width: fit-content;
+    color: #FF2D64;
+    border: 0.2rem solid black;
+    filter: drop-shadow(0.2rem 0.2rem black);
+    font-family: monospace;
+    font-weight: 800;
+    margin: 1rem 0 1rem 0;
+    font-size: 1.2rem;
+}
+/* Media Queries */
+
+@media screen  and (max-width:420px){
+
+    .filterButton{
+        /* width: 35vw; */
+        font-weight: 800;
+        font-size: 1rem;
+        height: 5vh;
+    }
+    
+}
+@media (min-width:421px) and (max-width:520px){
+
+    .filterButton{
+        /* width: 30vw; */
+        font-weight: 800;
+        height: 5vh;
+    }
+}
+@media (min-width:521px)  {
+}
+@media screen and  (min-width:1025px){
+    
+    .createPost{
+        display: block;
+        width: 80%;
+        margin-top: 1rem ;
+    }
+  }

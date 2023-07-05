@@ -1,0 +1,128 @@
+.container {
+  background-color:#F5BC47 ;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border: 0.3rem solid black;
+  width: 80vw;
+  padding:1rem;
+  min-height: 80vh;
+  filter: drop-shadow(0.5rem 0.5rem black);
+}
+.container h2{
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.inputContainer input{
+  font-size: 1.2rem;
+  height: 6vh;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 800;
+  background-color: #FE7E16;
+  outline: none;
+  border: 0.2rem solid black;
+  width: 35vw;
+  margin: 0.5rem;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputContainer {
+  
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.textArea {
+  display: block;
+  resize: none;
+  text-align: justify;
+  width: 85%;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0;
+  border: 0.3rem solid black;
+  margin: auto;
+}
+.updateUserFooter{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: monospace;
+  font-size: 1.3em;
+  height: 6vh;
+  font-weight: 700;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.updateUserFooter input[type=url]{
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  outline: none;
+  border: 0.2rem solid black;
+  width: 50%;
+    padding: 0.3rem;
+}
+.updateUserFooter input[type=submit],input[type=reset]{
+  height: 4vh;
+  width: fit-content;
+  background-color: #FE7E16;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: 0.2rem solid black;
+  margin: 0.5rem;
+
+}
+.updtuserBio{
+  font-family: monospace;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.selectAvatar{
+  background-color: #FE7E16;
+  width: fit-content;
+  height: 4vh;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: 700;
+  border: 0.2rem solid black;
+}
+/* Media Queries */
+@media screen and (min-width:768px) {
+  .container{
+    width: 55vw;
+    min-height: fit-content;
+  }
+  .inputContainer input{
+    width: 25vw;
+  }
+.updateUserFooter input[type="url"]{
+    width:30%;
+  }
+}
+@media screen and  (min-width:1025px){
+.container{
+  width: 40vw;
+}
+.inputContainer input{
+  width: 18vw;
+}
+}

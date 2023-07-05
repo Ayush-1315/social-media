@@ -1,0 +1,541 @@
+.landingBody {
+    background-color: #FE7E16;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    height: 80vh;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #F3BB45;
+    align-items: center;
+    border: 0.6rem solid black;
+    filter: drop-shadow(0.8rem 00.8rem black);
+
+}
+
+.welcomeBrand {
+    font-size: 3rem;
+    color: #000;
+    font-family: monospace;
+    font-weight: 900;
+    filter: drop-shadow(0.3rem 0.3rem #BADA91);
+    width: 0vw;
+    display: inline-block;
+    overflow: hidden;
+    animation: expansion 1.6s ease-in-out forwards 1s;
+    z-index: 2;
+
+}
+
+@keyframes expansion {
+    100% {
+        display: inline;
+        width: 100%;
+    }
+
+}
+
+/* 
+.welcome .welcomeBrand i{
+    font-size: 2rem;
+    color: #BADA91;
+    font-family: monospace;
+    font-weight: 900;
+    text-shadow: 5px black;
+} */
+.typer {
+    font-size: 0rem;
+    color: #000;
+    font-family: monospace;
+    font-weight: 900;
+    text-shadow: 5px black;
+    animation: typeAnimation 1s ease-in-out forwards;
+    opacity: 1;
+
+}
+
+@keyframes typeAnimation {
+    100% {
+        display: none;
+        font-size: 3rem;
+    }
+}
+
+.vecContainer {
+    background: url(../../assets/Friends\ 03.png) center;
+    background-color: #F3BB45;
+    transform: translateY(-5vh);
+    height: 0vh;
+    width: 0vw;
+    justify-self: start;
+    animation: enlarge 1s ease-in-out forwards 0.5s;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.advertContainer {
+    background-color: #ffffffa4;
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 0.4rem solid black;
+}
+
+.advertContainer li {
+    list-style-type: none;
+    font-family: monospace;
+    display: flex;
+    align-items: flex-end;
+    margin: 1rem;
+}
+
+.advertContainer li>span:first-child {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color: #9E3C3A;
+    margin: 0;
+
+
+}
+.advertContainer>ul>span{
+    font-size: 1rem;
+}
+.advertContainer>ul>a{
+    font-weight: 700;
+}
+@keyframes enlarge {
+    100% {
+        height: 70vh;
+        width: 80%;
+    }
+
+}
+
+.beginChat {
+    background-color: #BADA91;
+    text-decoration: none;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.5rem;
+    width: 15vw;
+    height: 5vh;
+    filter: drop-shadow(0.2rem 0.2rem black);
+    border: 0.2rem solid black;
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-in-out 1s;
+
+}
+
+.beginChat a {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: monospace;
+    animation: fadeIn 1s forwards ease-in-out 1s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.logoContainer {
+    filter: drop-shadow(0.2rem 0.2rem black);
+    margin: 0.5rem;
+}
+
+.logoContainer img {
+    height: 5rem;
+}
+
+@media screen and (max-width:375px) {
+    .vecContainer {
+        background: url(../../assets/Friends\ 03.png) center;
+        background-size: cover;
+        height: 0vh;
+        width: 0vw;
+        animation: enlarge 1s ease-in-out forwards 0.5s;
+        margin: 1rem;
+
+    }
+
+    @keyframes enlarge {
+        100% {
+            height: 90%;
+            width: 90%;
+        }
+
+    }
+
+    .welcome {
+        height:69%;
+        width: 80%;
+        background-color: #F3BB45;
+        border: 0.6rem solid black;
+        filter: drop-shadow(0.8rem 00.8rem black);
+
+    }
+
+    .welcomeBrand {
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 900;
+        filter: drop-shadow(0.3rem 0.3rem #BADA91);
+        width: 0vw;
+        animation: expansion 1.6s ease-in-out forwards 1s;
+
+    }
+
+    @keyframes expansion {
+        100% {
+            display: inline;
+            width: 100%;
+        }
+
+    }
+
+    .typer {
+        font-size: 0rem;
+        font-weight: 900;
+        text-shadow: 5px black;
+        animation: typeAnimation 1s ease-in-out forwards;
+
+    }
+
+    @keyframes typeAnimation {
+        100% {
+            display: none;
+            font-size: 1.5rem;
+        }
+    }
+
+    .advertContainer {
+        background-color: #ffffffcf;
+        height: 60%;
+        width: 90%;
+        border: 0.4rem solid black;
+    }
+
+    .advertContainer li>span:first-child {
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+    .beginChat {
+        
+        font-size: 1rem;
+        width: 60%;
+        height: 5vh;
+        filter: drop-shadow(0.2rem 0.2rem black);
+        border: 0.2rem solid black;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+    
+    }
+    
+    .beginChat a {
+       
+        font-size: 1.5rem;
+        font-weight: 700;
+     
+        animation: fadeIn 1s forwards ease-in-out 1s;
+        opacity: 0;
+    }
+    .logoContainer {
+        filter: drop-shadow(0.2rem 0.2rem black);
+        margin: 0.5rem;
+        transform: translate();
+    }
+    
+    .logoContainer img {
+        height: 3rem;
+    }
+}
+@media (min-width:376px) and (max-width:575px){
+    .vecContainer {
+        background: url(../../assets/Friends\ 03.png) center;
+        background-size: cover;
+        height: 0vh;
+        width: 0vw;
+        animation: enlarge 1s ease-in-out forwards 0.5s;
+        margin: 1rem;
+
+    }
+
+    @keyframes enlarge {
+        100% {
+            height: 90%;
+            width: 90%;
+        }
+
+    }
+
+    .welcome {
+        height:80%;
+        width: 80%;
+        background-color: #F3BB45;
+        border: 0.6rem solid black;
+        filter: drop-shadow(0.8rem 00.8rem black);
+
+    }
+
+    .welcomeBrand {
+        font-size: 2rem;
+        color: #000;
+        font-weight: 900;
+        filter: drop-shadow(0.3rem 0.3rem #BADA91);
+        width: 0vw;
+        animation: expansion 1.6s ease-in-out forwards 1s;
+
+    }
+
+    @keyframes expansion {
+        100% {
+            display: inline;
+            width: 100%;
+        }
+
+    }
+
+    .typer {
+        font-size: 0rem;
+        font-weight: 900;
+        text-shadow: 5px black;
+        animation: typeAnimation 1s ease-in-out forwards;
+
+    }
+
+    @keyframes typeAnimation {
+        100% {
+            display: none;
+            font-size: 1.5rem;
+        }
+    }
+
+    .advertContainer {
+        background-color: #ffffffcf;
+        height: 70%;
+        width: 80%;
+        border: 0.4rem solid black;
+    }
+
+    .advertContainer li>span:first-child {
+        font-size: 1.7rem;
+        font-weight: 800;
+    }
+    .beginChat {
+        
+        font-size: 1rem;
+        width: 40%;
+        height: 5vh;
+        filter: drop-shadow(0.2rem 0.2rem black);
+        border: 0.2rem solid black;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+    
+    }
+    
+    .beginChat a {
+       
+        font-size: 1.5rem;
+        font-weight: 700;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+        opacity: 0;
+    }
+    .logoContainer {
+        filter: drop-shadow(0.2rem 0.2rem black);
+        margin: 0.5rem;
+    }
+    
+    .logoContainer img {
+        height: 3rem;
+    }
+}
+@media (min-width:576px) and (max-width:799px)  {
+    .vecContainer {
+        height: 0vh;
+        width: 0vw;
+        animation: enlarge 1s ease-in-out forwards 0.5s;
+        margin: 1rem;
+    }
+
+    @keyframes enlarge {
+        100% {
+            height: 90%;
+            width: 90%;
+        }
+
+    }
+
+    .welcome {
+        height:80%;
+        width: 80%;
+    }
+
+    .welcomeBrand {
+        font-size: 3rem;
+        filter: drop-shadow(0.3rem 0.3rem #BADA91);
+        width: 0vw;
+        animation: expansion 1.6s ease-in-out forwards 1s;
+
+    }
+
+    @keyframes expansion {
+        100% {
+            display: inline;
+            width: 100%;
+        }
+
+    }
+
+    .typer {
+        font-size: 0rem;
+        font-weight: 900;
+        text-shadow: 5px black;
+        animation: typeAnimation 1s ease-in-out forwards;
+
+    }
+
+    @keyframes typeAnimation {
+        100% {
+            display: none;
+            font-size: 1.5rem;
+        }
+    }
+
+    .advertContainer {
+        background-color: #ffffffcf;
+        height: 60%;
+        width: 70%;
+    }
+
+    .advertContainer li>span:first-child {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+    .beginChat {
+        
+        font-size: 1rem;
+        width: 40%;
+        height: 5vh;
+        filter: drop-shadow(0.2rem 0.2rem black);
+        border: 0.2rem solid black;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+    
+    }
+ 
+    .logoContainer {
+        filter: drop-shadow(0.2rem 0.2rem black);
+        margin: 0.5rem;
+        transform: translate();
+    }
+    
+    .logoContainer img {
+        height: 3rem;
+    }
+    
+}
+@media (min-width:800px) and (max-width:1080px){
+
+    .vecContainer {
+        height: 0vh;
+        width: 0vw;
+        animation: enlarge 1s ease-in-out forwards 0.5s;
+        margin: 1rem;
+    }
+
+    @keyframes enlarge {
+        100% {
+            height: 90%;
+            width: 90%;
+        }
+
+    }
+
+    .welcome {
+        height:80%;
+        width: 80%;
+    }
+
+    .welcomeBrand {
+        font-size: 3rem;
+        filter: drop-shadow(0.3rem 0.3rem #BADA91);
+        width: 0vw;
+        animation: expansion 1.6s ease-in-out forwards 1s;
+
+    }
+
+    @keyframes expansion {
+        100% {
+            display: inline;
+            width: 100%;
+        }
+
+    }
+
+    .typer {
+        font-size: 0rem;
+        font-weight: 900;
+        text-shadow: 5px black;
+        animation: typeAnimation 1s ease-in-out forwards;
+
+    }
+
+    @keyframes typeAnimation {
+        100% {
+            display: none;
+            font-size: 1.5rem;
+        }
+    }
+
+    .advertContainer {
+        background-color: #ffffffcf;
+        height: 60%;
+        width: 70%;
+    }
+
+    .advertContainer li>span:first-child {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+   
+    .beginChat {
+        
+        font-size: 1rem;
+        width: 30%;
+        height: 5vh;
+        filter: drop-shadow(0.2rem 0.2rem black);
+        border: 0.2rem solid black;
+        opacity: 0;
+        animation: fadeIn 1s forwards ease-in-out 1s;
+    
+    }
+ 
+    .logoContainer {
+        filter: drop-shadow(0.2rem 0.2rem black);
+        margin: 0.5rem;
+        transform: translate();
+    }
+    
+    .logoContainer img {
+        height: 3rem;
+    }
+
+}
